@@ -1,0 +1,399 @@
+---
+title: 'Diving into SQL and Data Analytics'
+date: 2025-08-07T15:32:14Z
+lastmod: '2021-02-01'
+tags: ['next-js', 'tailwind', 'guide']
+draft: false
+summary: 'An overview of the new features released in v1 - code block copy, multiple authors, frontmatter layout and more'
+layout: PostSimple
+bibliography: references-data.bib
+---
+
+## Overview
+
+Welcome to the first session of our SQL class! If you're a working professional looking to harness the power of data, you're in the right place. Today, we'll explore the basics of data analytics, the importance of SQL, and get hands-on with setting up a MySQL database and writing our first SQL queries. We'll use a fun dataset inspired by the _Parks and Recreation_ TV show to make things engaging. Let's dive in!
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={2} />
+## What is Data Analytics?
+
+Data analytics is the process of examining data to uncover insights, identify trends, and make informed decisions. Whether you're analyzing sales figures, customer behavior, or, in our case, employee data from the Pawnee Parks Department, analytics helps you turn raw data into actionable information.
+
+For working professionals, data analytics is a game-changer. It empowers you to:
+
+- Make data-driven decisions in your organization.
+- Identify inefficiencies or opportunities (e.g., optimizing department budgets).
+- Communicate insights effectively to stakeholders.
+
+## Why is SQL Important?
+
+SQL (Structured Query Language) is the standard language for interacting with relational databases. A relational database organizes data into tables with rows and columns, much like a spreadsheet, but with powerful querying capabilities. SQL is critical because:
+
+- It’s widely used across industries (e.g., finance, healthcare, marketing).
+- It allows you to extract, filter, and analyze data efficiently.
+- It’s a foundational skill for roles like data analyst, business intelligence developer, or even project manager.
+
+In our class, we'll use MySQL, a popular open-source relational database, to learn SQL hands-on.
+
+## Setting Up MySQL and Our Database
+
+Before we write queries, we need a database to work with. Follow these steps to set up MySQL and create our `Parks_and_Recreation` database:
+
+1. **Install MySQL**: Download and install MySQL Community Server from [mysql.com](https://www.mysql.com/). Choose the version compatible with your operating system (Windows, macOS, or Linux).
+2. **Set Up MySQL Workbench**: This is a graphical tool to manage your database. Install it alongside MySQL.
+3. **Create the Database**: Run the following SQL commands in MySQL Workbench to set up our database and tables:
+
+```sql
+DROP DATABASE IF EXISTS `Parks_and_Recreation`;
+CREATE DATABASE `Parks_and_Recreation`;
+USE `Parks_and_Recreation`;
+
+CREATE TABLE employee_demographics (
+  employee_id INT NOT NULL,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  age INT,
+  gender VARCHAR(10),
+  birth_date DATE,
+  PRIMARY KEY (employee_id)
+);
+
+CREATE TABLE employee_salary (
+  employee_id INT NOT NULL,
+  first_name VARCHAR(50) NOT NULL,
+  last_name VARCHAR(50) NOT NULL,
+  occupation VARCHAR(50),
+  salary INT,
+  dept_id INT
+);
+
+CREATE TABLE parks_departments (
+  department_id INT NOT NULL AUTO_INCREMENT,
+  department_name varchar(50) NOT NULL,
+  PRIMARY KEY (department_id)
+);
+```
+
+These commands create a database with three tables: `employee_demographics` (employee details), `employee_salary` (salary and job info), and `parks_departments` (department details). We've also inserted sample data (not shown here for brevity, but provided in the class schema).
+
+## The SELECT Statement and FROM Clause
+
+The `SELECT` statement is the cornerstone of SQL, used to retrieve specific columns from a database table. The `FROM` clause specifies which table to query. You can select all columns using `*`:
+
+```sql
+SELECT *
+FROM employee_demographics;
+```
+
+This retrieves all columns from the `employee_demographics` table, showing details like `employee_id`, `first_name`, `last_name`, `age`, `gender`, and `birth_date` for employees like Leslie Knope and Ron Swanson.
+
+You can also select specific columns based on your needs. For example:
+
+```sql
+SELECT first_name
+FROM employee_demographics;
+```
+
+Output:
+
+| first_name |
+| ---------- |
+| Leslie     |
+| Tom        |
+| April      |
+| ...        |
+
+This query returns only the `first_name` column, making it easier to focus on specific data. To select multiple columns, separate them with commas:
+
+```sql
+SELECT first_name, last_name
+FROM employee_demographics;
+```
+
+Output:
+
+| first_name | last_name |
+| ---------- | --------- |
+| Leslie     | Knope     |
+| Tom        | Haverford |
+| April      | Ludgate   |
+| ...        | ...       |
+
+The order of columns in the `SELECT` statement doesn’t typically matter for simple queries, so you can write:
+
+```sql
+SELECT last_name, first_name, gender, age
+FROM employee_demographics;
+```
+
+For readability, SQL queries are often formatted with each column on a new line:
+
+```sql
+SELECT last_name,
+       first_name,
+       gender,
+       age
+FROM employee_demographics;
+```
+
+This format makes it easier to scan and understand, especially in complex queries—a practice you’ll appreciate in professional settings.
+
+### Performing Calculations in SELECT
+
+You can perform calculations in the `SELECT` statement, which is useful for transforming data. For example, to add a $100 bonus to each employee’s salary:
+
+```sql
+SELECT first_name,
+       last_name,
+       salary,
+       salary + 100
+FROM employee_salary;
+```
+
+Output (partial):
+
+| first_name | last_name | salary | salary + 100 |
+| ---------- | --------- | ------ | ------------ |
+| Leslie     | Knope     | 75000  | 75100        |
+| Ron        | Swanson   | 70000  | 70100        |
+| ...        | ...       | ...    | ...          |
+
+SQL follows the PEMDAS order of operations (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction). For example:
+
+```sql
+SELECT first_name,
+       last_name,
+       salary,
+       (salary + 100) * 10
+FROM employee_salary;
+```
+
+Output (partial):
+
+| first_name | last_name | salary | (salary + 100) \* 10 |
+| ---------- | --------- | ------ | -------------------- |
+| Leslie     | Knope     | 75000  | 751000               |
+| Ron        | Swanson   | 70000  | 701000               |
+| ...        | ...       | ...    | ...                  |
+
+Here, the calculation `(salary + 100) * 10` adds 100 to the salary first (inside parentheses), then multiplies by 10, demonstrating PEMDAS in action.
+
+### Using DISTINCT in SELECT
+
+The `DISTINCT` keyword ensures only unique values are returned, eliminating duplicates. For example, to see all department IDs in `employee_salary`:
+
+```sql
+SELECT department_id
+FROM employee_salary;
+```
+
+Output (includes duplicates):
+
+| department_id |
+| ------------- |
+| 1             |
+| 1             |
+| 1             |
+| ...           |
+
+Now, with `DISTINCT`:
+
+```sql
+SELECT DISTINCT department_id
+FROM employee_salary;
+```
+
+Output (no duplicates):
+
+| department_id |
+| ------------- |
+| 1             |
+| 3             |
+| 4             |
+| 6             |
+| NULL          |
+
+This is useful when you need a list of unique values, like department IDs, for reporting or analysis.
+
+## Filtering Data with the WHERE Clause
+
+The `WHERE` clause filters rows based on specific conditions, affecting which rows appear in the output (but not the columns). For example, to find employees earning more than $50,000:
+
+```sql
+SELECT *
+FROM employee_salary
+WHERE salary > 50000;
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | occupation                              | salary | dept_id |
+| ----------- | ---------- | --------- | --------------------------------------- | ------ | ------- |
+| 1           | Leslie     | Knope     | Deputy Director of Parks and Recreation | 75000  | 1       |
+| 2           | Ron        | Swanson   | Director of Parks and Recreation        | 70000  | 1       |
+| 6           | Donna      | Meagle    | Office Manager                          | 60000  | 1       |
+| ...         | ...        | ...       | ...                                     | ...    | ...     |
+
+Using `>=` includes employees with salaries exactly at $50,000:
+
+```sql
+SELECT *
+FROM employee_salary
+WHERE salary >= 50000;
+```
+
+This adds employees like Tom Haverford and Jerry Gergich, who earn exactly $50,000.
+
+You can filter by other conditions, like gender:
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE gender = 'Female';
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 1           | Leslie     | Knope     | 44  | Female | 1979-09-25 |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+| 6           | Donna      | Meagle    | 46  | Female | 1977-07-30 |
+| ...         | ...        | ...       | ... | ...    | ...        |
+
+To find employees who are _not_ female:
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE gender != 'Female';
+```
+
+This returns male employees like Tom Haverford and Ron Swanson.
+
+You can also filter by dates. For example, to find employees born after January 1, 1985:
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE birth_date > '1985-01-01';
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 3           | Tom        | Haverford | 36  | Male   | 1987-03-04 |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+| 10          | Andy       | Dwyer     | 34  | Male   | 1989-03-25 |
+| ...         | ...        | ...       | ... | ...    | ...        |
+
+Note that `'1985-01-01'` uses MySQL’s default date format (YYYY-MM-DD). We’ll explore other date formats in later lessons.
+
+## The LIKE Statement for Pattern Matching
+
+The `LIKE` statement, used with the `WHERE` clause, allows pattern matching in text data using two special characters:
+
+- `%`: Matches any sequence of characters.
+- `_`: Matches exactly one character.
+
+For example, to find employees whose first names start with 'A':
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE first_name LIKE 'A%';
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+| 7           | Ann        | Perkins   | 35  | Female | 1988-12-01 |
+| 10          | Andy       | Dwyer     | 34  | Male   | 1989-03-25 |
+
+To find names with exactly three letters (e.g., 'Ann'):
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE first_name LIKE 'A__';
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 7           | Ann        | Perkins   | 35  | Female | 1988-12-01 |
+| 10          | Andy       | Dwyer     | 34  | Male   | 1989-03-25 |
+
+For names starting with 'A' and having at least four letters:
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE first_name LIKE 'A___%';
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+
+This query matches names like 'April' but excludes 'Ann' or 'Andy' because they don’t have at least four letters.
+
+## Class Assignment
+
+Test your understanding with these business-oriented questions. Write SQL queries to answer each, using the `Parks_and_Recreation` database. Click to reveal the solution, but try solving it first!
+
+1. **Who are the employees in the Parks and Recreation department?**
+   - Write a query to list the first and last names of employees in the Parks and Recreation department (`dept_id = 1`).
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT first_name, last_name FROM employee_salary WHERE dept_id = 1; ```
+   </details>
+
+2. **Which employees earn at least $60,000 annually?**
+   - Retrieve the first name, last name, and salary of employees with salaries greater than or equal to $60,000.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT first_name, last_name, salary FROM employee_salary WHERE salary >= 60000; ```
+   </details>
+
+3. **How many unique job titles exist in the organization?**
+   - Use `DISTINCT` to count the unique occupations in the `employee_salary` table.
+   - **Hint**: Use `COUNT` with `DISTINCT` to avoid counting duplicate job titles.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT COUNT(DISTINCT occupation) AS unique_job_titles FROM employee_salary; ```
+   </details>
+
+4. **Which employees were born before 1980, and what are their ages?**
+   - List the first name, last name, and age of employees with a birth date before January 1, 1980.
+
+    <details>
+ <summary>Show Solution</summary>
+ ```sql
+ SELECT first_name, last_name, age
+ FROM employee_demographics
+ WHERE birth_date < '1980-01-01';
+ ```
+ </details>
+
+5. **Which employees have names starting with 'C' or 'L', and what are their roles?**
+   - Find employees whose first names start with 'C' or 'L', and show their first name, last name, and occupation from `employee_salary`.
+   - **Hint**: Use `LIKE` with an `OR` condition to match names starting with either letter.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT first_name, last_name, occupation FROM employee_salary WHERE first_name LIKE 'C%'
+     OR first_name LIKE 'L%'; ```
+   </details>
+
+## What's Next?
+
+In this session, we’ve covered the basics of data analytics, why SQL matters, and how to use `SELECT`, `FROM`, `WHERE`, and `LIKE` to query and filter data. We’ve also explored calculations, `DISTINCT`, and pattern matching to make your queries more powerful. Practice these queries in MySQL Workbench with our `Parks_and_Recreation` database. In Session 2, we’ll explore grouping data and refining our queries further with `GROUP BY`, `HAVING`, `LIMIT`, and aliases. Stay tuned, and keep practicing!

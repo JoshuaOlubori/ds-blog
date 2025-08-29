@@ -1,0 +1,401 @@
+---
+title: 'Diving into SQL and Data Analytics'
+date: 2025-08-07T15:32:14Z
+lastmod: '2021-02-01'
+tags: ['next-js', 'tailwind', 'guide']
+draft: false
+summary: 'An overview of the new features released in v1 - code block copy, multiple authors, frontmatter layout and more'
+layout: PostSimple
+bibliography: references-data.bib
+---
+
+## Overview
+
+Welcome back to Week 1 of our SQL class! In Session 1, we set up our `Parks_and_Recreation` database and learned to retrieve and filter data using `SELECT`, `FROM`, `WHERE`, and `LIKE`. Today, we’ll build on that foundation by exploring how to group data with `GROUP BY`, sort results with `ORDER BY`, filter groups with `HAVING`, and refine queries using `LIMIT` and `AS` aliases. These tools are essential for summarizing, organizing, and presenting data—skills you can apply in your professional work to analyze budgets, team performance, or operational metrics. Let’s get started!
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={2} />
+
+## The GROUP BY Clause for Summarizing Data
+
+The `GROUP BY` clause groups rows with the same values in specified columns into summary rows, allowing us to run _aggregate functions_ like `AVG`, `COUNT`, `MIN`, `MAX`, or `SUM` on those groups. This is perfect for summarizing data, such as calculating averages or counts within categories.
+
+For example, to group employees by gender in the `employee_demographics` table:
+
+```sql
+SELECT gender
+FROM employee_demographics
+GROUP BY gender;
+```
+
+Output:
+
+| gender |
+| ------ |
+| Female |
+| Male   |
+
+This query returns unique gender values, as `GROUP BY` consolidates rows with the same `gender`. Note that columns in the `SELECT` statement must either be in the `GROUP BY` clause or be aggregated. For instance, selecting `first_name` without grouping by it will cause an error:
+
+```sql
+SELECT first_name
+FROM employee_demographics
+GROUP BY gender;
+```
+
+This fails because `first_name` isn’t aggregated or included in the `GROUP BY`. Instead, let’s group by `occupation` in the `employee_salary` table:
+
+```sql
+SELECT occupation
+FROM employee_salary
+GROUP BY occupation;
+```
+
+Output (partial):
+
+| occupation                              |
+| --------------------------------------- |
+| Deputy Director of Parks and Recreation |
+| Director of Parks and Recreation        |
+| Office Manager                          |
+| ...                                     |
+
+Notice that even though there are two office managers (Jerry and Donna), only one row appears because `GROUP BY occupation` consolidates duplicate occupations.
+
+You can group by multiple columns. For example:
+
+```sql
+SELECT occupation, salary
+FROM employee_salary
+GROUP BY occupation, salary;
+```
+
+Output (partial):
+
+| occupation                              | salary |
+| --------------------------------------- | ------ |
+| Deputy Director of Parks and Recreation | 75000  |
+| Director of Parks and Recreation        | 70000  |
+| Office Manager                          | 60000  |
+| Office Manager                          | 50000  |
+| ...                                     |
+
+Here, grouping by both `occupation` and `salary` creates unique combinations, so the two office managers appear separately due to their different salaries.
+
+### Aggregate Functions with GROUP BY
+
+The real power of `GROUP BY` comes from using aggregate functions. For example, to calculate the average age by gender:
+
+```sql
+SELECT gender, AVG(age)
+FROM employee_demographics
+GROUP BY gender;
+```
+
+Output:
+
+| gender | AVG(age) |
+| ------ | -------- |
+| Female | 38.50    |
+| Male   | 41.33    |
+
+You can combine multiple aggregates:
+
+```sql
+SELECT gender, MIN(age), MAX(age), COUNT(age), AVG(age)
+FROM employee_demographics
+GROUP BY gender;
+```
+
+Output:
+
+| gender | MIN(age) | MAX(age) | COUNT(age) | AVG(age) |
+| ------ | -------- | -------- | ---------- | -------- |
+| Female | 29       | 46       | 4          | 38.50    |
+| Male   | 34       | 61       | 6          | 41.33    |
+
+This shows the minimum, maximum, count, and average age for each gender group, providing a comprehensive summary.
+
+## HAVING vs. WHERE: Filtering Rows vs. Groups
+
+Both `WHERE` and `HAVING` filter data, but they serve different purposes:
+
+- `WHERE` filters individual rows _before_ grouping, based on column values.
+- `HAVING` filters groups _after_ the `GROUP BY` is applied, based on aggregated values.
+
+For example, to filter employees with ages above 40 using `WHERE`:
+
+```sql
+SELECT gender, AVG(age)
+FROM employee_demographics
+WHERE age > 40
+GROUP BY gender;
+```
+
+Output:
+
+| gender | AVG(age) |
+| ------ | -------- |
+| Female | 45.00    |
+| Male   | 50.50    |
+
+Here, `WHERE age > 40` filters out individual rows before grouping, so only employees over 40 are included in the average.
+
+Now, try filtering on the _average age_ using `WHERE`:
+
+```sql
+SELECT gender, AVG(age)
+FROM employee_demographics
+WHERE AVG(age) > 40
+GROUP BY gender;
+```
+
+This query fails because `WHERE` executes before `GROUP BY` in SQL’s order of operations, so you can’t filter on aggregates like `AVG(age)`. This is where `HAVING` comes in:
+
+```sql
+SELECT gender, AVG(age)
+FROM employee_demographics
+GROUP BY gender
+HAVING AVG(age) > 40;
+```
+
+Output:
+
+| gender | AVG(age) |
+| ------ | -------- |
+| Male   | 41.33    |
+
+`HAVING` filters the grouped results, keeping only groups where the average age exceeds 40. You can make it more readable with an alias:
+
+```sql
+SELECT gender, AVG(age) AS Avg_age
+FROM employee_demographics
+GROUP BY gender
+HAVING Avg_age > 40;
+```
+
+The `AS` keyword is optional, but it’s explicit and recommended for clarity:
+
+```sql
+SELECT gender, AVG(age) Avg_age
+FROM employee_demographics
+GROUP BY gender
+HAVING Avg_age > 40;
+```
+
+Both queries produce the same output, but using `AS` makes your intent clearer.
+
+## Sorting with the ORDER BY Clause
+
+The `ORDER BY` clause sorts query results in ascending (`ASC`) or descending (`DESC`) order. By default, it sorts in ascending order. For example, to sort employees by first name:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY first_name;
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 7           | Ann        | Perkins   | 35  | Female | 1988-12-01 |
+| 10          | Andy       | Dwyer     | 34  | Male   | 1989-03-25 |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+| ...         | ...        | ...       | ... | ...    | ...        |
+
+To sort in descending order:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY first_name DESC;
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 3           | Tom        | Haverford | 36  | Male   | 1987-03-04 |
+| 5           | Jerry      | Gergich   | 61  | Male   | 1962-08-28 |
+| 1           | Leslie     | Knope     | 44  | Female | 1979-09-25 |
+| ...         | ...        | ...       | ... | ...    | ...        |
+
+You can sort by multiple columns:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY gender, age;
+```
+
+This sorts by `gender` (ascending, A-Z) first, then by `age` (ascending) within each gender. To sort both in descending order:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY gender DESC, age DESC;
+```
+
+You can also use column positions instead of names, where `gender` is column 5 and `age` is column 4:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY 5 DESC, 4 DESC;
+```
+
+However, using column names is best practice for clarity and maintainability, especially if the table structure changes.
+
+## Controlling Output with LIMIT
+
+The `LIMIT` clause restricts the number of rows returned, which is useful for previewing data or focusing on top results. For example:
+
+```sql
+SELECT *
+FROM employee_demographics
+LIMIT 3;
+```
+
+Output (partial):
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 1           | Leslie     | Knope     | 44  | Female | 1979-09-25 |
+| 3           | Tom        | Haverford | 36  | Male   | 1987-03-04 |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+
+The output depends on the query’s order. For example, with sorting:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY first_name
+LIMIT 3;
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 7           | Ann        | Perkins   | 35  | Female | 1988-12-01 |
+| 10          | Andy       | Dwyer     | 34  | Male   | 1989-03-25 |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+
+You can also specify a starting point and number of rows using `LIMIT start, count`. For example, to start at the third row and take two rows:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY first_name
+LIMIT 2, 2;
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 4           | April      | Ludgate   | 29  | Female | 1994-03-27 |
+| 9           | Ben        | Wyatt     | 38  | Male   | 1985-07-26 |
+
+This starts at the third row (position 2, zero-based) and returns two rows. To find the third oldest employee:
+
+```sql
+SELECT *
+FROM employee_demographics
+ORDER BY age DESC
+LIMIT 2, 1;
+```
+
+Output:
+
+| employee_id | first_name | last_name | age | gender | birth_date |
+| ----------- | ---------- | --------- | --- | ------ | ---------- |
+| 6           | Donna      | Meagle    | 46  | Female | 1977-07-30 |
+
+This query sorts by age (descending) and returns the third row, identifying Donna as the third oldest.
+
+## AS Aliases for Clarity
+
+Aliases, created with the `AS` keyword, give temporary names to columns or tables, improving readability. For example:
+
+```sql
+SELECT gender, AVG(age) AS Avg_age
+FROM employee_demographics
+GROUP BY gender;
+```
+
+Output:
+
+| gender | Avg_age |
+| ------ | ------- |
+| Female | 38.50   |
+| Male   | 41.33   |
+
+The alias `Avg_age` makes the output clearer. The `AS` keyword is optional:
+
+```sql
+SELECT gender, AVG(age) Avg_age
+FROM employee_demographics
+GROUP BY gender;
+```
+
+Both queries produce the same result, but using `AS` is more explicit and recommended for professional code.
+
+Aliases are also useful in joins (covered later) and can be applied to tables to shorten queries.
+
+## Class Assignment
+
+Apply your new skills with these business-oriented questions. Write SQL queries to answer each, using the `Parks_and_Recreation` database. Click to reveal the solution, but try solving it first!
+
+1. **What is the average salary by department?**
+   - Calculate the average salary for each department ID in the `employee_salary` table, aliasing the result as `avg_salary`.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT dept_id, AVG(salary) AS avg_salary FROM employee_salary GROUP BY dept_id; ```
+   </details>
+
+2. **Which departments have more than one employee?**
+   - Count the number of employees per department ID and show only those with more than one employee.
+   - **Hint**: Use `COUNT` with `GROUP BY` and filter with `HAVING`.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT dept_id, COUNT(*) AS employee_count FROM employee_salary GROUP BY dept_id HAVING
+     employee_count > 1; ```
+   </details>
+
+3. **Who are the top 3 highest-paid employees, sorted by salary?**
+   - List the first name, last name, and salary of the top 3 highest-paid employees, ordered by salary in descending order.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT first_name, last_name, salary FROM employee_salary ORDER BY SALARY DESC LIMIT 3;
+     ```
+   </details>
+
+4. **Which occupations have a maximum salary above $65,000?**
+   - Group by occupation, calculate the maximum salary, and show only occupations where the maximum salary exceeds $65,000.
+   - **Hint**: Use `MAX` with `GROUP BY` and filter with `HAVING`.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT occupation, MAX(salary) AS max_salary FROM employee_salary GROUP BY occupation
+     HAVING max_salary > 65000; ```
+   </details>
+
+5. **Who is the second youngest employee in the organization?**
+   - Find the first name, last name, and age of the second youngest employee, sorted by age in ascending order.
+   - **Hint**: Use `LIMIT` with an offset to skip the youngest employee.
+
+   <details>
+     <summary>Show Solution</summary>
+     ```sql SELECT first_name, last_name, age FROM employee_demographics ORDER BY age ASC LIMIT 1,
+     1; ```
+   </details>
+
+## Wrapping Up
+
+In this session, we’ve explored how to group data with `GROUP BY` and aggregate functions, sort results with `ORDER BY`, filter groups with `HAVING`, limit output with `LIMIT`, and improve readability with aliases. These techniques allow you to summarize and organize data effectively—skills you can apply to analyze metrics like department budgets or employee demographics in your professional work.
+
+Practice these queries and the assignment questions in MySQL Workbench using our `Parks_and_Recreation` database. Next week, we’ll dive deeper into joining tables and more advanced SQL techniques. Keep exploring, and see you in Week 2!
