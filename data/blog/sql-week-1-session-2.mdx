@@ -352,7 +352,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT dept_id, AVG(salary) AS avg_salary FROM employee_salary GROUP BY dept_id; ```
+     ```sql SELECT dept_id, AVG(salary) AS avg_salary FROM employee_salary GROUP BY dept_id; 
+     ```
    </details>
 
 2. **Which departments have more than one employee?**
@@ -362,7 +363,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
    <details>
      <summary>Show Solution</summary>
      ```sql SELECT dept_id, COUNT(*) AS employee_count FROM employee_salary GROUP BY dept_id HAVING
-     employee_count > 1; ```
+     employee_count > 1;
+      ```
    </details>
 
 3. **Who are the top 3 highest-paid employees, sorted by salary?**
@@ -381,7 +383,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
    <details>
      <summary>Show Solution</summary>
      ```sql SELECT occupation, MAX(salary) AS max_salary FROM employee_salary GROUP BY occupation
-     HAVING max_salary > 65000; ```
+     HAVING max_salary > 65000; 
+     ```
    </details>
 
 5. **Who is the second youngest employee in the organization?**
@@ -391,7 +394,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
    <details>
      <summary>Show Solution</summary>
      ```sql SELECT first_name, last_name, age FROM employee_demographics ORDER BY age ASC LIMIT 1,
-     1; ```
+     1; 
+     ```
    </details>
 
 ## Wrapping Up
