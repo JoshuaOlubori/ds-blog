@@ -375,14 +375,14 @@ Test your understanding with these business-oriented questions. Write SQL querie
 4. **Which employees were born before 1980, and what are their ages?**
    - List the first name, last name, and age of employees with a birth date before January 1, 1980.
 
-    <details>
- <summary>Show Solution</summary>
- ```sql
- SELECT first_name, last_name, age
- FROM employee_demographics
- WHERE birth_date < '1980-01-01';
- ```
- </details>
+  <details>
+  <summary>Show Solution</summary>
+  ```sql
+  SELECT first_name, last_name, age
+  FROM employee_demographics
+  WHERE birth_date < '1980-01-01';
+  ```
+  </details>
 
 5. **Which employees have names starting with 'C' or 'L', and what are their roles?**
    - Find employees whose first names start with 'C' or 'L', and show their first name, last name, and occupation from `employee_salary`.
