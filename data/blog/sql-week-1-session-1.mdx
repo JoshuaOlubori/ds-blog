@@ -46,7 +46,7 @@ Follow along this YouTube video to install MySQL and MySQL Workbench:
 <iframe
   width="560"
   height="315"
-  src="https://www.youtube.com/embed/retnVP0t8NM?si=FIrhz2Y8d8LXYa8I"
+  src="https://www.youtube.com/embed/0lrhroxONNU?si=0bmVoaJUG6a3nQW8&amp"
   title="YouTube video player"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen
@@ -390,6 +390,50 @@ Output (partial):
 
 Note that `'1985-01-01'` uses MySQL’s default date format (YYYY-MM-DD). We’ll explore other date formats in later lessons.
 
+A useful query is to filter on missing data. Perhaps you need to know where missing data is present or absent in your table,
+you could do this:
+
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE birth_date IS NULL; -- this would return employees that have not registered their birthdates
+```
+<Note>
+In databases, if data is not inserted into a record, that state of absense is represented as `NULL`.
+</Note>
+
+If you want to return employees who actually have birth dates, you would use the `NOT` modifier like so:
+
+```sql
+SELECT *
+FROM employee_demographics
+WHERE birth_date IS NOT NULL;
+```
+
+<Note>
+This is a good time to introduce comments in SQL.
+Anything after two consecutive hyphens `(--)` is ignored by the SQL engine and therefore can serve as documentation for code.
+Always document your code, especially sections whose function is not immediately obvious.
+
+Multi-line (block) comments are enclosed within `/*` and `*/`. All content between these delimiters, 
+including text spanning multiple lines, is treated as a comment.
+For example:
+
+
+
+    ```sql
+    /*
+    This is a multi-line comment.
+    It can span several lines
+    and is useful for longer explanations.
+    */
+
+    SELECT columnA, columnB
+    FROM another_table
+    WHERE condition = 'value';
+    ```
+</Note>
 ## The LIKE Statement for Pattern Matching
 
 The `LIKE` statement, used with the `WHERE` clause, allows pattern matching in text data using two special characters:
@@ -453,7 +497,10 @@ Test your understanding with these business-oriented questions. Write SQL querie
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT first_name, last_name FROM employee_salary WHERE dept_id = 1; ```
+     ```sql 
+     SELECT first_name, last_name
+     FROM employee_salary WHERE dept_id = 1; 
+     ```
    </details>
 
 2. **Which employees earn at least $60,000 annually?**
@@ -461,7 +508,11 @@ Test your understanding with these business-oriented questions. Write SQL querie
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT first_name, last_name, salary FROM employee_salary WHERE salary >= 60000; ```
+     ```sql
+      SELECT first_name, last_name, salary 
+      FROM employee_salary 
+      WHERE salary >= 60000; 
+      ```
    </details>
 
 3. **How many unique job titles exist in the organization?**
@@ -470,7 +521,10 @@ Test your understanding with these business-oriented questions. Write SQL querie
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT COUNT(DISTINCT occupation) AS unique_job_titles FROM employee_salary; ```
+     ```sql 
+     SELECT COUNT(DISTINCT occupation) AS unique_job_titles
+      FROM employee_salary; 
+      ```
    </details>
 
 4. **Which employees were born before 1980, and what are their ages?**
@@ -491,7 +545,10 @@ Test your understanding with these business-oriented questions. Write SQL querie
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT first_name, last_name, occupation FROM employee_salary WHERE first_name LIKE 'C%'
+     ```sql 
+     SELECT first_name, last_name, occupation 
+     FROM employee_salary 
+     WHERE first_name LIKE 'C%'
      OR first_name LIKE 'L%'; 
      ```
    </details>
