@@ -1,10 +1,10 @@
 ---
-title: 'Data Analytics with SQL (Aggregating data)'
+title: "Data Analytics with SQL (Aggregating data)"
 date: 2025-08-29T16:32:14Z
 # lastmod: '2021-02-01'
-tags: ['sql']
+tags: ["sql"]
 draft: false
-summary: 'Understanding data aggregation'
+summary: "Understanding data aggregation"
 layout: PostSimple
 bibliography: references-data.bib
 ---
@@ -352,8 +352,9 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT dept_id, AVG(salary) AS avg_salary FROM employee_salary GROUP BY dept_id; 
-     ```
+     ```sql SELECT dept_id, AVG(salary) AS avg_salary FROM employee_salary GROUP
+     BY dept_id;
+      ```
    </details>
 
 2. **Which departments have more than one employee?**
@@ -362,8 +363,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT dept_id, COUNT(*) AS employee_count FROM employee_salary GROUP BY dept_id HAVING
-     employee_count > 1;
+     ```sql SELECT dept_id, COUNT(*) AS employee_count FROM employee_salary
+     GROUP BY dept_id HAVING employee_count > 1;
       ```
    </details>
 
@@ -372,7 +373,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT first_name, last_name, salary FROM employee_salary ORDER BY SALARY DESC LIMIT 3;
+     ```sql SELECT first_name, last_name, salary FROM employee_salary ORDER BY
+     SALARY DESC LIMIT 3;
      ```
    </details>
 
@@ -382,9 +384,9 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT occupation, MAX(salary) AS max_salary FROM employee_salary GROUP BY occupation
-     HAVING max_salary > 65000; 
-     ```
+     ```sql SELECT occupation, MAX(salary) AS max_salary FROM employee_salary
+     GROUP BY occupation HAVING max_salary > 65000;
+      ```
    </details>
 
 5. **Who is the second youngest employee in the organization?**
@@ -393,8 +395,8 @@ Apply your new skills with these business-oriented questions. Write SQL queries 
 
    <details>
      <summary>Show Solution</summary>
-     ```sql SELECT first_name, last_name, age FROM employee_demographics ORDER BY age ASC LIMIT 1,
-     1; 
+     ```sql SELECT first_name, last_name, age FROM employee_demographics ORDER
+     BY age ASC LIMIT 1, 1; 
      ```
    </details>
 
