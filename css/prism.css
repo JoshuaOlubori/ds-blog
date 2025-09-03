@@ -57,6 +57,13 @@
   font-style: italic;
 }
 
+/* Dark mode override */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.cdata {
+  color: rgb(160, 180, 180); /* A lighter color for dark mode */
+}
+
 .token.punctuation {
   color: rgb(199, 146, 234);
 }
