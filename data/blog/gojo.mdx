@@ -1,0 +1,182 @@
+---
+title: "Gojo: An AI Copilot for Nigerian Educators"
+date: 2025-10-11T10:00:00Z # Adjust the date as needed
+tags: ["ai", "edtech", "hackathon"]
+draft: false
+summary: "A hackathon project report on Gojo, an AI-powered copilot designed to help Nigerian teachers create curriculum-aligned, multilingual lesson plans."
+layout: PostSimple
+bibliography: references-data.bib # Assuming this is your standard bibliography file   
+---
+
+## Overview
+
+![Logo](/static/images/gojo-logo-dark.png)
+
+
+### Hackathon Project Report
+
+## Executive Summary
+
+In September 2025, the Nigerian Federal Ministry of Education announced the rollout of a new national curriculum. While promising, it places pressure on educators who are already burdened by time constraints, resource scarcity, and a significant digital divide. Gojo is meant as a reprieve to this challenge. Gojo is a web/mobile AI-powered assistant designed to drastically reduce planning time, improve the quality of teaching materials, and bridge linguistic and resource gaps for teachers across the nation. It automates the creation of curriculum-aligned, grade-appropriate, and contextually relevant weekly lesson plans.
+
+Key features include **multilingual translation** into Hausa, Yoruba, and Igbo; **offline export** to PDF; and a unique **syllabus customization** feature that empowers teachers to validate and tailor the AI's output to their specific classroom needs. Gojo aims to be a reliable partner for every Nigerian teacher, aiming to save 3-4 hours per week per teacher and directly contributing to improved teaching quality and student outcomes.
+
+
+---
+
+## 1. The Problem: An Educational System in Transition
+
+![group-african-kids.jpg](/static/images/group-african-kids.jpg)
+
+Africa, and particularly Nigeria, recognises the issues in education that impact its long-term growth. The launch of a new national curriculum by the Federal Ministry of Education signals the intention of the authorities in preparing students for a 21st-century workforce, emphasizing practical and vocational skills. However, the success of this reform hinges on the teachers tasked with its implementation. Research and on-the-ground realities reveal several challenges that threaten this transition:
+
+* **Intense Time Pressure and Workload:** Nigerian teachers are often overworked, managing large class sizes and numerous subjects. [cite_start]The pupil-to-teacher ratio in many public primary schools is about **$40:1$**[cite: 7], which is above national policy recommendations. [cite_start]There is also a large shortage of **qualified teachers**: only about **$70.8\%$** of basic education teachers meet required qualifications; thus nearly one in three teachers is unqualified[cite: 2].
+    * [cite_start]In public primary schools, the country needs an additional **$194,876$** qualified teachers to meet existing requirements[cite: 3].
+* **Resource and Quality Gaps:** Access to high-quality teaching materials that are aligned with the new curriculum is inconsistent, especially in rural and underserved areas. [cite_start]For example, only about **$54.8\%$** of schools had the minimum teaching materials, and only about **$38.2\%$** of pupils had access to a mathematics or English textbook in surveyed areas[cite: 4].
+* **The Digital and Linguistic Divide:** Nigeria is extremely linguistically diverse, home to **over 500 indigenous languages**. [cite_start]Using local languages (especially Hausa, Yoruba, Igbo) in early education has been shown to improve comprehension[cite: 5].
+* [cite_start]**Resistance to Change and Lack of Support:** The new curriculum (launched September 2025) includes subjects like digital literacy and coding, which many teachers are not yet fully equipped to teach[cite: 8].
+
+Gojo is built to address these problems, providing a support system that empowers teachers to implement the new curriculum to full effect.
+
+---
+
+## 2. Our Solution: The Gojo AI Teaching Copilot
+
+{/* Assuming you have a component for embedding videos in your MDX */}
+{/* <VideoEmbed src="./media/mobile-demo-video" title="Gojo Mobile Demo" /> */}
+{/* You would need to use an MDX component for this if your blog supports it */}
+{/* https://drive.google.com/file/d/1zjZYWtom9dJ9mgAMOhMX2yTsjEjgX7HM/view?usp=sharing */}
+<iframe
+  width="560"
+  height="315"
+  src="https://drive.google.com/file/d/1zjZYWtom9dJ9mgAMOhMX2yTsjEjgX7HM/preview" 
+  title="video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+>
+</iframe>
+
+Gojo is an AI-powered web (and in the future, mobile) platform designed to be the Nigerian teacher's most reliable assistant.
+
+Our target users are represented by three key personas from our Product Requirements Document (PRD):
+-   **Mrs. Amina Ibrahim:** A primary school teacher in rural Kano with low tech literacy, who needs curriculum content in Hausa.
+-   **Mr. Chukwudi Okafor:** A busy JSS teacher in urban Lagos who needs to automate planning to maintain quality across multiple classes.
+-   **Miss Fatima Yusuf:** A new SSS teacher in semi-urban Kaduna who needs guidance and practical examples for teaching new vocational subjects.
+
+---
+
+## 3. Core Features and Hackathon Alignment
+
+Each feature is mapped to a specific teacher need and a hackathon deliverable.
+
+### Automated & Customized Lesson Plan Generation
+{/* <VideoEmbed src="./media/lesson-gen-snippet.mp4" title="Lesson Plan Generation Demo" /> */}
+
+
+
+<iframe
+  width="560"
+  height="315"
+  src="https://drive.google.com/file/d/1hNMnCufrpCKdvG6g0nwr-o0LvFjT9FEL/preview" 
+  title="video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+>
+</iframe>
+
+
+* **What it does:** Based on a teacher's grade, subject, and weekly schedule, Gojo's AI automatically generates a complete lesson plan 24 hours before class. A **Syllabus Review** feature lets teachers first review and edit an AI-generated syllabus for the term.
+* **How it helps:** This saves an estimated 3-4 hours of prep time weekly.
+* **Hackathon Goal Alignment:** Fulfills the objective of “Generating lesson plans, teaching aids, and contextual examples for new and existing subjects.”
+
+
+{/* https://drive.google.com/file/d/1ien3urPyhsT83b1B-zAsAr5Wzmf9ys_C/view?usp=sharing */}
+<iframe
+  width="560"
+  height="315"
+  src="https://drive.google.com/file/d/1ien3urPyhsT83b1B-zAsAr5Wzmf9ys_C/preview" 
+  title="video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+>
+</iframe>
+
+### Multilingual Translation
+* **What it does:** With a single click, teachers can translate any generated lesson plan from English into **Hausa, Yoruba, or Igbo**.
+* [cite_start]**How it helps:** It empowers teachers to teach in their students' mother tongue, improving comprehension and engagement[cite: 5].
+* **Hackathon Goal Alignment:** Matches the requirement to ensure materials are “multilingual, and culturally relevant.”
+
+
+{/* https://drive.google.com/file/d/1VSwOab60sGg4ybVFSXq8CN_6AM7IOKm8/view?usp=sharing */}
+<iframe
+  width="560"
+  height="315"
+  src="https://drive.google.com/file/d/1VSwOab60sGg4ybVFSXq8CN_6AM7IOKm8/preview" 
+  title="video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+>
+</iframe>
+
+### PDF Export for Offline Use
+* **What it does:** Every lesson plan can be downloaded as a **PDF document**.
+* **How it helps:** This addresses the challenge of limited internet connectivity in rural areas.
+* **Hackathon Goal Alignment:** This addresses the need for “low-data or offline functionality for rural schools.”
+
+### Integrated Resources and Quality Content
+* **What it does:** Each lesson plan includes grade-appropriate content, with classwork, solutions, and homework.
+* **How it helps:** This solves the resource gap by providing a complete, high-quality package, which is especially helpful for teachers new to a subject.
+* **Hackathon Goal Alignment:** Contributes to “providing digital skill support for emerging areas.”
+
+---
+
+## 4. Technical Architecture and Implementation
+
+Gojo is built on a modern, scalable, and efficient tech stack:
+
+* **Frontend & Backend:** **Next.js with React**, hosted on **Vercel**.
+* **Database:** **PostgreSQL (Neon)** with the Drizzle ORM.
+* **AI & LLMs:** We utilize the free tiers of **Google Gemini 2.5 Flash** and **Groq (OpenAI GPT-OSS 120b)**. Gemini is our primary model chosen for its robust reasoning, while Groq serves as a high-speed backup.
+* **Scheduling:** **Inngest** is used for the cron jobs that power scheduled lesson plan delivery.
+* **File Generation:** The \`puppeteer\` library is used to correctly generate PDF exports.
+
+---
+
+## 5. Impact, Scalability, and Future Vision
+
+### Expected Impact
+The primary impact of Gojo is the **empowerment of teachers**.
+* **Increased Teacher Readiness:** Teachers will be better prepared to teach the new curriculum.
+* **Improved Student Learning Outcomes:** Well-planned and engaging lessons directly correlate with better student performance.
+* **Reduced Educational Inequality:** By providing equal access to quality planning tools, Gojo helps level the playing field.
+
+### Scalability Vision
+* **National Rollout:** We will target specific states and teacher unions for pilot programs before a nationwide launch.
+* **Integration:** We plan to integrate with popular EdTech platforms like uLesson and Google Classroom.
+* **Future Features:** Post-MVP features include a **Teacher Dashboard** for tracking progress, **Personalized Learning Pathways** for upskilling, and **Real-time Classroom Tools** (chatbots/voice assistants).
+
+---
+
+## Conclusion
+
+The challenge of accelerating Nigeria's educators is not merely a technical problem. Gojo rises to this challenge by providing a solution that is intelligent, empathetic, and relevant to the realities of the Nigerian classroom. By automating the mundane, bridging linguistic and digital divides, and ensuring quality, Gojo frees teachers to do what they do best: inspire the next generation.
+
+---
+
+## Project contributors
+
+-   [Edun Joshua (PwC, Nigeria)](https://www.linkedin.com/in/joshua-edun/)
+-   [Temiloluwa Ogundiran (KPMG/Covenant University, Nigeria)](https://www.linkedin.com/in/temiloluwa-ogundiran-029b2025b)
+
+---
+
+## References
+
+1.  Vanguard. “FG launches new curriculum for basic, secondary, technical schools.” *Vanguard News*, 1 September 2025.
+2.  Guardian. “One in three teachers in Nigeria lacks proper qualifications – UBEC.” *The Guardian Nigeria*, 18 August 2025.
+3.  UBEC. “Basic Education: Nigeria needs 194,876 additional teachers, 1,107,854 classrooms.” *Vanguard News*, 10 July 2024.
+4.  UNICEF / ODHS / MICS data. “Foundational reading and numeracy skills in Nigeria: children aged 7 to 14.”
+5.  Oando Foundation & UNICEF. “Foundational Learning Improvement Program (LEARNOVATE-FLIP)” reporting, 2025.
+6.  “A Review of the Basic Education Situation in Nigeria.” *Dataphyte*, 2025.
+7.  World Bank / UBEC. Pupil-teacher ratio, primary schools Nigeria.
+8.  “Government unveils Approved Curriculum, warns against fake subject lists.” *Solyd Nigeria foundation*, September 2025.
