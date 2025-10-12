@@ -10,8 +10,8 @@ bibliography: references-data.bib # Assuming this is your standard bibliography 
 
 ## Overview
 
-![Logo](/static/images/gojo-logo-dark.png)
-
+<img src="/static/images/gojo-logo-dark.png" alt="Logo" width="50" height="50"/>
+<TOCInline toc={props.toc} exclude="Overview" toHeading={2} />
 
 ### Hackathon Project Report
 
@@ -30,11 +30,15 @@ Key features include **multilingual translation** into Hausa, Yoruba, and Igbo; 
 
 Africa, and particularly Nigeria, recognises the issues in education that impact its long-term growth. The launch of a new national curriculum by the Federal Ministry of Education signals the intention of the authorities in preparing students for a 21st-century workforce, emphasizing practical and vocational skills. However, the success of this reform hinges on the teachers tasked with its implementation. Research and on-the-ground realities reveal several challenges that threaten this transition:
 
-* **Intense Time Pressure and Workload:** Nigerian teachers are often overworked, managing large class sizes and numerous subjects. [cite_start]The pupil-to-teacher ratio in many public primary schools is about **$40:1$**[cite: 7], which is above national policy recommendations. [cite_start]There is also a large shortage of **qualified teachers**: only about **$70.8\%$** of basic education teachers meet required qualifications; thus nearly one in three teachers is unqualified[cite: 2].
-    * [cite_start]In public primary schools, the country needs an additional **$194,876$** qualified teachers to meet existing requirements[cite: 3].
-* **Resource and Quality Gaps:** Access to high-quality teaching materials that are aligned with the new curriculum is inconsistent, especially in rural and underserved areas. [cite_start]For example, only about **$54.8\%$** of schools had the minimum teaching materials, and only about **$38.2\%$** of pupils had access to a mathematics or English textbook in surveyed areas[cite: 4].
-* **The Digital and Linguistic Divide:** Nigeria is extremely linguistically diverse, home to **over 500 indigenous languages**. [cite_start]Using local languages (especially Hausa, Yoruba, Igbo) in early education has been shown to improve comprehension[cite: 5].
-* [cite_start]**Resistance to Change and Lack of Support:** The new curriculum (launched September 2025) includes subjects like digital literacy and coding, which many teachers are not yet fully equipped to teach[cite: 8].
+* **Intense Time Pressure and Workload:** Nigerian teachers are often overworked, managing large class sizes and numerous subjects. The pupil-to-teacher ratio in many public primary schools is about **40:1** [7], which is above national policy recommendations and much higher than in many states’ target ratios.
+    There is also a large shortage of **qualified teachers**: only about **70.8%** of basic education teachers meet required qualifications; thus nearly one in three teachers is unqualified [2].
+    * In public primary schools, the country needs an additional **194,876** qualified teachers to meet existing requirements [3].
+
+* **Resource and Quality Gaps:** Access to high-quality teaching materials that are aligned with the new curriculum is inconsistent, especially in rural and underserved areas. Many teachers lack access to textbooks and other essential aids. For example, only about **54.8%** of schools had the minimum teaching materials, and only about **38.2%** of pupils had access to a mathematics or English textbook in surveyed areas [4].
+
+* **The Digital and Linguistic Divide:** While urban educators may have better connectivity, many rural teachers face limited internet connectivity and lower digital literacy. Nigeria is extremely linguistically diverse: the country is home to **over 500 indigenous languages**. Although English is the official medium of instruction, using local languages (especially Hausa, Yoruba, Igbo) in early education has been shown to improve comprehension and engagement [5].
+
+* **Resistance to Change and Lack of Support:** Introducing a new curriculum requires extensive retraining and continuous support. The new curriculum (launched September 2025) includes subjects like digital literacy, entrepreneurship, coding, robotics, etc., which many teachers are not yet fully equipped to teach [8].
 
 Gojo is built to address these problems, providing a support system that empowers teachers to implement the new curriculum to full effect.
 
@@ -59,9 +63,12 @@ Gojo is built to address these problems, providing a support system that empower
 Gojo is an AI-powered web (and in the future, mobile) platform designed to be the Nigerian teacher's most reliable assistant.
 
 Our target users are represented by three key personas from our Product Requirements Document (PRD):
--   **Mrs. Amina Ibrahim:** A primary school teacher in rural Kano with low tech literacy, who needs curriculum content in Hausa.
--   **Mr. Chukwudi Okafor:** A busy JSS teacher in urban Lagos who needs to automate planning to maintain quality across multiple classes.
--   **Miss Fatima Yusuf:** A new SSS teacher in semi-urban Kaduna who needs guidance and practical examples for teaching new vocational subjects.
+- **Mrs. Amina Ibrahim:** A primary school teacher in rural Kano with low tech literacy, who needs curriculum content in Hausa.
+- **Mr. Chukwudi Okafor:** A busy JSS teacher in urban Lagos who needs to automate planning to maintain quality across multiple classes.
+- **Miss Fatima Yusuf:** A new SSS teacher in semi-urban Kaduna who needs guidance and practical examples for teaching new vocational subjects.
+
+By acknowledging these diverse needs, Gojo ensures its features are practical, inclusive, and impactful.
+The full PRD document can be viewed here in the Appendix section.
 
 ---
 
@@ -85,11 +92,13 @@ Each feature is mapped to a specific teacher need and a hackathon deliverable.
 </iframe>
 
 
-* **What it does:** Based on a teacher's grade, subject, and weekly schedule, Gojo's AI automatically generates a complete lesson plan 24 hours before class. A **Syllabus Review** feature lets teachers first review and edit an AI-generated syllabus for the term.
-* **How it helps:** This saves an estimated 3-4 hours of prep time weekly.
-* **Hackathon Goal Alignment:** Fulfills the objective of “Generating lesson plans, teaching aids, and contextual examples for new and existing subjects.”
+* **What it does:** Based on a teacher's grade, subject, and weekly schedule, Gojo's AI automatically generates a complete lesson plan 24 hours before class. There is a **Syllabus Review** feature, where teachers first review and edit an AI-generated syllabus for the term, ensuring all future lesson plans align perfectly with their validated weekly topics.
+* **How it helps:** This eliminates the most time-consuming part of a teacher's weekly prep, saving an estimated 3-4 hours. It ensures every lesson is aligned with NERDC standards and includes clear objectives, activities, classwork with solutions, and homework assignments.
+**Hackathon Goal Alignment:** Fulfills the objective of “Generating lesson plans, teaching aids, and contextual examples for new and existing subjects”.
 
 
+
+### Multilingual Translation
 {/* https://drive.google.com/file/d/1ien3urPyhsT83b1B-zAsAr5Wzmf9ys_C/view?usp=sharing */}
 <iframe
   width="560"
@@ -100,13 +109,14 @@ Each feature is mapped to a specific teacher need and a hackathon deliverable.
   allowFullScreen
 >
 </iframe>
-
-### Multilingual Translation
-* **What it does:** With a single click, teachers can translate any generated lesson plan from English into **Hausa, Yoruba, or Igbo**.
-* [cite_start]**How it helps:** It empowers teachers to teach in their students' mother tongue, improving comprehension and engagement[cite: 5].
-* **Hackathon Goal Alignment:** Matches the requirement to ensure materials are “multilingual, and culturally relevant.”
+* **What it does:** With a single click, teachers can translate any generated lesson plan from English into Hausa, Yoruba, or Igbo. The translation preserves formatting and adapts examples to be culturally appropriate.
+* **How it helps:** This empowers teachers like Mrs. Amina to teach in their students' mother tongue, improving comprehension and classroom engagement. It removes language barriers and makes high-quality materials accessible to all.
+* **Hackathon Goal Alignment:** Matches the requirement to ensure materials are “multilingual, and culturally relevant”.
 
 
+
+
+### PDF Export for Offline Use
 {/* https://drive.google.com/file/d/1VSwOab60sGg4ybVFSXq8CN_6AM7IOKm8/view?usp=sharing */}
 <iframe
   width="560"
@@ -117,49 +127,56 @@ Each feature is mapped to a specific teacher need and a hackathon deliverable.
   allowFullScreen
 >
 </iframe>
-
-### PDF Export for Offline Use
-* **What it does:** Every lesson plan can be downloaded as a **PDF document**.
-* **How it helps:** This addresses the challenge of limited internet connectivity in rural areas.
-* **Hackathon Goal Alignment:** This addresses the need for “low-data or offline functionality for rural schools.”
+* **What it does:** Every lesson plan, whether in English or a local language, can be downloaded as a PDF document.
+* **How it helps:** This feature helps teachers with limited internet. They can download their weekly plans when they have connectivity and then edit, print, and use them entirely offline.
+* **Hackathon Goal Alignment:** This addresses the need for “low-data or offline functionality for rural schools”.
 
 ### Integrated Resources and Quality Content
-* **What it does:** Each lesson plan includes grade-appropriate content, with classwork, solutions, and homework.
-* **How it helps:** This solves the resource gap by providing a complete, high-quality package, which is especially helpful for teachers new to a subject.
-* **Hackathon Goal Alignment:** Contributes to “providing digital skill support for emerging areas.”
+* **What it does:** Each lesson plan includes grade-appropriate content, with classwork, solution and homework for further learning.
+* **How it helps:** This solves the resource gap by providing teachers with a complete, high-quality package for every lesson. It helps teachers who are new to a subject (like Miss Fatima) learn while they prepare to teach.
+* **Hackathon Goal Alignment:** Contributes to “providing digital skill support for emerging areas”.
 
 ---
 
 ## 4. Technical Architecture and Implementation
 
-Gojo is built on a modern, scalable, and efficient tech stack:
+Gojo is built on a modern, scalable, and efficient tech stack designed for rapid development and reliability.
 
-* **Frontend & Backend:** **Next.js with React**, hosted on **Vercel**.
-* **Database:** **PostgreSQL (Neon)** with the Drizzle ORM.
-* **AI & LLMs:** We utilize the free tiers of **Google Gemini 2.5 Flash** and **Groq (OpenAI GPT-OSS 120b)**. Gemini is our primary model chosen for its robust reasoning, while Groq serves as a high-speed backup.
-* **Scheduling:** **Inngest** is used for the cron jobs that power scheduled lesson plan delivery.
-* **File Generation:** The \`puppeteer\` library is used to correctly generate PDF exports.
+* **Frontend & Backend:** Next.js with React, hosted on Vercel.
+* **Database:** PostgreSQL (Neon) with the Drizzle ORM.
+* **AI & LLMs:** We utilize the free tiers of **Google Gemini 2.5 Flash** and **Groq (OpenAI GPT-OSS 120b)**. Gemini is our primary model chosen for its robust reasoning, while Groq serves as a high-speed backup. Our prompt engineering strategy is highly structured to ensure consistent, high-quality output in the Nigerian educational context.
+* **Scheduling:** Inngest is used for the cron jobs that power our scheduled lesson plan delivery, ensuring reliability and timeliness.
+* **File Generation:** The `puppeteer` library is used to correctly generate PDF exports.
+
+This architecture is robust enough for our MVP and is designed to scale as we onboard more users and add more features.
 
 ---
 
 ## 5. Impact, Scalability, and Future Vision
 
-### Expected Impact
-The primary impact of Gojo is the **empowerment of teachers**.
-* **Increased Teacher Readiness:** Teachers will be better prepared to teach the new curriculum.
-* **Improved Student Learning Outcomes:** Well-planned and engaging lessons directly correlate with better student performance.
-* **Reduced Educational Inequality:** By providing equal access to quality planning tools, Gojo helps level the playing field.
+
+### **Expected Impact**
+The primary impact of Gojo is the **empowerment of teachers**. By saving them time and providing high-quality, accessible resources, we expect to see:
+* **Increased Teacher Readiness:** Teachers will be better prepared to teach the new curriculum, leading to higher confidence and job satisfaction.
+* **Improved Student Learning Outcomes:** Well-planned and engaging lessons directly correlate with better student performance and understanding.
+* **Reduced Educational Inequality:** By providing equal access to quality planning tools for rural and urban teachers, Gojo helps level the playing field for marginalized schools.
+
+The UNESCO experience suggests that an AI lesson planner can measurably improve curriculum delivery.
 
 ### Scalability Vision
-* **National Rollout:** We will target specific states and teacher unions for pilot programs before a nationwide launch.
-* **Integration:** We plan to integrate with popular EdTech platforms like uLesson and Google Classroom.
-* **Future Features:** Post-MVP features include a **Teacher Dashboard** for tracking progress, **Personalized Learning Pathways** for upskilling, and **Real-time Classroom Tools** (chatbots/voice assistants).
+Our vision is to scale Gojo to become an indispensable tool for every educator in Nigeria and beyond.
+* **National Rollout:** We will target specific states and teacher unions for pilot programs, gathering feedback to refine the product before a nationwide launch.
+* **Integration:** We plan to integrate with popular EdTech platforms like uLesson and Google Classroom for teachers that already have accounts on those platforms so that they fit into existing workflows.
+* **Future Features:** Post-MVP we aim to achieve the following features:
+    * **A Teacher Dashboard:** Tracking progress and generating analytics to provide personalized recommendations for professional development.
+    * **Personalized Learning Pathways:** Using AI to suggest courses and materials for teachers to upskill in new subjects.
+    * **Real-time Classroom Tools:** Developing chatbots and voice assistants to help teachers with in-class queries and assessment generation.
 
 ---
 
 ## Conclusion
 
-The challenge of accelerating Nigeria's educators is not merely a technical problem. Gojo rises to this challenge by providing a solution that is intelligent, empathetic, and relevant to the realities of the Nigerian classroom. By automating the mundane, bridging linguistic and digital divides, and ensuring quality, Gojo frees teachers to do what they do best: inspire the next generation.
+The challenge of accelerating Nigeria's educators is not merely a technical problem. The nation's future success depends on it. Gojo rises to this challenge by providing a solution that is intelligent, empathetic, and relevant to the realities of the Nigerian classroom. By automating the mundane, bridging linguistic and digital divides, and ensuring quality, Gojo frees teachers to do what they do best: inspire the next generation.
 
 ---
 
@@ -180,3 +197,1384 @@ The challenge of accelerating Nigeria's educators is not merely a technical prob
 6.  “A Review of the Basic Education Situation in Nigeria.” *Dataphyte*, 2025.
 7.  World Bank / UBEC. Pupil-teacher ratio, primary schools Nigeria.
 8.  “Government unveils Approved Curriculum, warns against fake subject lists.” *Solyd Nigeria foundation*, September 2025.
+
+
+
+## Appendix: Product Requirements Document (PRD)
+
+## 3. Product Features
+
+### 3.1 Feature List (MVP Scope)
+
+| Feature ID | Feature Name                        | Priority         | Description                                                                                       |
+| ---------- | ----------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------- |
+| F1         | Teacher Onboarding                  | P0 (Must-have)   | Capture teacher profile, grade, subjects, and schedule                                            |
+| F2         | Automated Lesson Plan Generation    | P0 (Must-have)   | AI-generated weekly lesson plans based on curriculum                                              |
+| F3         | Scheduled Delivery                  | P0 (Must-have)   | Generate lesson plans 1 day before scheduled class                                                |
+| F4         | Grade-Appropriate Content           | P0 (Must-have)   | All content tailored to specific student grade level                                              |
+| F5         | Classwork & Solutions               | P0 (Must-have)   | Include practice exercises with answer keys                                                       |
+| F6         | Homework Assignments                | P0 (Must-have)   | Take-home assignments with grading rubrics                                                        |
+| F7         | Multilingual Translation            | P1 (Should-have) | Translate to Hausa, Yoruba, or Igbo post-generation                                               |
+applicable                                                |
+| F8         | PDF Export                      | P0 (Must-have)   | Download lesson plans as editable .docx or pdf files                                              |
+| F9        | **Syllabus Review & Customization** | P0               | Teachers review AI-generated syllabus per subject/term/week and edit before lessons are generated |
+
+---
+
+## 4. Detailed Feature Specifications
+
+### 4.1 Feature F1: Teacher Onboarding
+
+#### Description
+
+First-time users complete a registration and setup process to configure their teaching profile.
+
+#### User Flow
+
+1. Teacher opens app and clicks "Get Started"
+2. Creates account (email/phone + password or Google Sign-In)
+3. Completes profile:
+
+   - Full Name
+   - School Name (optional)
+   - State/LGA (for localization)
+   - Current term (out of 3 terms) and week
+
+4. Adds teaching assignment(s):
+   - Grade Level (Primary 1-6, JSS 1-3, SSS 1-3)
+   - Subject (dropdown from curriculum subjects)
+   - Weekly Schedule (days + duration)
+     - Example: "Mathematics - Monday (1 hour), Wednesday (2 hours)"
+5. **New Step:** For each subject, Gojo generates a suggested syllabus (topics and subtopics for the registered term/week). Teacher can:
+   - Review syllabus outline per week
+   - Edit or add topics/subtopics
+   - Save customized syllabus
+6. Reviews and confirms setup
+7. Redirected to dashboard
+
+#### Acceptance Criteria
+
+- ✅ Teachers receive AI-generated syllabus based on subject, grade, term, and week
+- ✅ Teachers can edit topics and subtopics before saving
+- ✅ Edits are persisted in the database
+- ✅ Lesson generation references saved syllabus instead of static curriculum mapping
+
+#### Technical Notes
+
+- Store schedule in structured format: `{subject_id, day_of_week, duration_minutes}`
+- Validate grade-subject combinations against curriculum matrix
+- Support timezone: West Africa Time (WAT, UTC+1)
+
+---
+
+### 4.2 Feature F2: Automated Lesson Plan Generation
+
+#### Description
+
+AI generates comprehensive, curriculum-aligned lesson plans based on teacher profile and schedule.
+
+#### User Flow
+
+1. System runs daily automated check (configured cron job)
+2. Identifies teachers with classes scheduled for "tomorrow"
+3. For each upcoming class:
+   - Retrieves teacher profile, grade, subject, curriculum week/topic
+   - Generates lesson plan using AI (LLM API call), respecting the current term and week based on term and week selected on onboarding
+   - Stores generated plan in database
+4. Sends notification to teacher (in-app/email/SMS): "Your lesson plan for [Subject] is ready!"
+5. Teacher accesses dashboard to view/download plan
+
+#### AI Generation Prompt Structure
+
+```
+You are an expert Nigerian educator creating a lesson plan for the new national curriculum.
+
+Context:
+- Grade Level: [Primary 4]
+- Term: [{dynamic - based on time since indicated term on onboarding}]
+- Week: [{dynamic - based on time since indicated week and term on onboarding}]
+- Subject: [Mathematics]
+- Topic: [Fractions - Introduction]
+- Lesson Duration: [1 hour]
+- Curriculum Standard: [NERDC 2025]
+
+Generate a detailed lesson plan including:
+1. Learning Objectives (3-5 measurable objectives)
+2. Materials Needed
+3. Lesson Structure:
+   - Introduction (5-10 min)
+   - Main Teaching (30-40 min)
+   - Conclusion (5-10 min)
+4. Teaching Methods and Activities
+5. Classwork (5 questions with solutions)
+6. Homework Assignment (5 questions)
+7. Assessment Criteria
+
+Use Nigerian context and examples. Be practical and implementable in low-resource classrooms.
+```
+
+#### Lesson Plan Output Format
+
+```markdown
+# Lesson Plan: [Topic Name]
+
+**Grade:** [Primary 4]  
+**Subject:** [Mathematics]  
+**Duration:** [60 minutes]  
+**Date:** [October 7, 2025]  
+**Curriculum Ref:** [NERDC 2025 - Primary Mathematics Term 1, Week 4]
+
+---
+
+## Learning Objectives
+
+By the end of this lesson, students will be able to:
+
+1. [Objective 1]
+2. [Objective 2]
+3. [Objective 3]
+
+## Materials Needed
+
+- [Material 1]
+- [Material 2]
+- [Material 3]
+
+## Lesson Structure
+
+### Introduction (10 minutes)
+
+[Detailed description of introduction activity]
+
+### Main Teaching (40 minutes)
+
+[Detailed teaching content with examples]
+
+### Conclusion (10 minutes)
+
+[Wrap-up activity and key takeaways]
+
+---
+
+## Classwork (In-Class Practice)
+
+**Instructions:** [How students should complete the work]
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+4. [Question 4]
+5. [Question 5]
+
+### Solutions
+
+1. [Solution 1]
+2. [Solution 2]
+3. [Solution 3]
+4. [Solution 4]
+5. [Solution 5]
+
+---
+
+## Homework Assignment
+
+**Instructions:** [Completion guidelines and submission date]
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+4. [Question 4]
+5. [Question 5]
+
+**Assessment:** [How homework will be graded]
+
+---
+
+
+---
+
+_Generated by Gojo | Aligned with NERDC 2025 Curriculum_
+```
+
+#### Acceptance Criteria
+
+- ✅ Lesson plans generated 24 hours before scheduled class time
+- ✅ Content is grade-appropriate and curriculum-aligned
+- ✅ Lesson duration matches teacher's schedule (±5 minutes flexibility)
+- ✅ Includes all required sections (objectives, activities, classwork, homework)
+- ✅ Uses Nigerian context and locally relevant examples
+- ✅ Classwork includes 5+ questions with full solutions
+- ✅ Homework includes 5+ questions with assessment guidance
+- ✅ Generation completes within 30 seconds
+
+#### Technical Notes
+
+- Use Gemini 1.5 Pro or Groq Llama 3 for generation
+- Implement curriculum topic sequencing database (maps weeks to topics)
+- Store generated plans with metadata: `{teacher_id, subject_id, grade, week_number, generated_at, viewed_at, downloaded_at}`
+- Implement retry logic if generation fails
+
+---
+
+### 4.3 Feature F3: Scheduled Delivery
+
+#### Description
+
+Automated system ensures lesson plans are ready exactly one day before the teacher's scheduled class.
+
+#### User Flow
+
+1. System calculates upcoming classes:
+   - Current date: Sunday, Oct 5
+   - Teacher has "Mathematics - Monday 9am"
+   - System generates lesson on Sunday at 9am (24 hours before)
+2. After generation, teacher receives notification
+3. Teacher can access lesson plan immediately via dashboard
+
+#### Scheduling Logic Examples
+
+| Current Day  | Class Scheduled | Generation Time |
+| ------------ | --------------- | --------------- |
+| Sunday 9am   | Monday 9am      | Sunday 9am      |
+| Monday 3pm   | Tuesday 10am    | Monday 10am     |
+| Thursday 6pm | Friday 2pm      | Thursday 2pm    |
+
+#### Acceptance Criteria
+
+- ✅ System generates lessons exactly 24 hours before class time
+- ✅ Works across all 7 days of the week
+- ✅ Handles multiple subjects on the same day correctly
+- ✅ Respects teacher's timezone (WAT)
+- ✅ Sends notification within 5 minutes of generation
+- ✅ Teachers can manually trigger regeneration if needed
+
+#### Technical Notes
+
+- Use Inngest serveless functions for the cron jobs
+- Query database for `classes WHERE scheduled_datetime = NOW() + 24 hours`
+- Handle edge cases: holidays, school closures (future enhancement)
+- Log all generation attempts for debugging
+
+---
+
+### 4.4 Feature F4: Grade-Appropriate Content
+
+#### Description
+
+All generated content is tailored to the cognitive level, curriculum standards, and learning needs of the specific grade level.
+
+#### Grade-Level Guidelines
+
+| Grade Band  | Cognitive Level           | Content Characteristics                                             |
+| ----------- | ------------------------- | ------------------------------------------------------------------- |
+| Primary 1-3 | Concrete operational      | Simple vocabulary, visual aids, hands-on activities, basic concepts |
+| Primary 4-6 | Late concrete operational | Moderate complexity, real-world examples, foundational skills       |
+| JSS 1-3     | Early formal operational  | Abstract thinking begins, problem-solving, critical analysis        |
+| SSS 1-3     | Formal operational        | Advanced concepts, independent research, career-focused skills      |
+
+#### Acceptance Criteria
+
+- ✅ Vocabulary matches grade reading level
+- ✅ Learning objectives align with NERDC grade-specific standards
+- ✅ Activities are age-appropriate and feasible
+- ✅ Assessment difficulty scales with grade level
+- ✅ Examples reference student life experiences (e.g., Primary 2: "counting mangoes", SSS 3: "calculating business profit margins")
+
+#### Technical Notes
+
+- Embed grade-level guidance in AI generation prompts
+- Maintain curriculum standards database indexed by grade and subject
+
+---
+
+### 4.5 Feature F5: Classwork & Solutions
+
+#### Description
+
+Each lesson plan includes 5+ in-class practice questions with complete, step-by-step solutions for teacher reference.
+
+#### Content Requirements
+
+- **Question Format**: Clear, unambiguous, aligned with lesson objectives
+- **Difficulty**: Mix of easy (60%), medium (30%), challenging (10%)
+- **Solutions**: Step-by-step working, not just final answers
+- **Relevance**: Questions directly test concepts taught in the lesson
+
+#### Example (Primary 5 Mathematics - Fractions)
+
+**Classwork:**
+
+1. Simplify: 6/12
+2. Add: 1/4 + 1/4
+3. If Bola ate 2/8 of a cake, what fraction is left?
+4. Arrange in ascending order: 1/2, 1/4, 3/4
+5. Word problem: A farmer divided his land into 5 equal parts. He planted yam on 2 parts. What fraction of the land has yam?
+
+**Solutions:**
+
+1. 6/12 = 1/2 (divide numerator and denominator by 6)
+2. 1/4 + 1/4 = 2/4 = 1/2
+3. Total cake = 8/8. Cake eaten = 2/8. Remaining = 8/8 - 2/8 = 6/8 = 3/4
+4. 1/4, 1/2, 3/4 (convert to same denominator: 1/4, 2/4, 3/4)
+5. 2/5 of the land has yam
+
+#### Acceptance Criteria
+
+- ✅ Minimum 5 classwork questions per lesson
+- ✅ All questions have complete, accurate solutions
+- ✅ Solutions show working/steps, not just answers
+- ✅ Questions progress from simple to complex
+- ✅ At least 1 word problem requiring application (where appropriate)
+
+---
+
+### 4.6 Feature F6: Homework Assignments
+
+#### Description
+
+Take-home assignments that reinforce lesson concepts, with assessment guidance for teachers.
+
+#### Content Requirements
+
+- **Purpose**: Reinforce and extend classroom learning
+- **Quantity**: 5+ questions
+- **Difficulty**: Slightly more challenging than classwork
+- **Instructions**: Clear submission deadline and format
+- **Assessment**: Grading rubric or marking scheme provided
+
+#### Example (JSS 2 Social Studies - Nigerian Government)
+
+**Homework Assignment**
+
+**Due Date:** October 9, 2025  
+**Instructions:** Answer all questions in your notebook. Write neatly and show your understanding.
+
+1. Define democracy in your own words.
+2. List the three arms of government in Nigeria and their functions.
+3. Who is the current governor of your state? What political party does he/she belong to?
+4. Explain two differences between federal and state government.
+5. Essay (100 words): Why is it important for citizens to vote in elections?
+
+**Assessment Criteria:**
+
+- Accuracy of facts (40%)
+- Clarity of expression (30%)
+- Depth of understanding (20%)
+- Presentation (10%)
+
+#### Acceptance Criteria
+
+- ✅ Minimum 5 homework questions per lesson
+- ✅ Questions extend beyond classwork (not exact repetition)
+- ✅ Clear submission deadline (typically 2-3 days after lesson)
+- ✅ Includes assessment criteria or marking scheme
+- ✅ Differentiated difficulty where appropriate (bonus questions)
+
+---
+
+### 4.7 Feature F7: Multilingual Translation
+
+#### Description
+
+Teachers can translate generated lesson plans into Hausa, Yoruba, or Igbo after initial generation in English.
+
+#### User Flow
+
+1. Teacher views generated lesson plan (default: English)
+2. Clicks "Translate" button
+3. Selects target language from dropdown:
+   - Hausa (Yaren Hausa)
+   - Yoruba (Èdè Yorùbá)
+   - Igbo (Asụsụ Igbo)
+4. System translates full lesson plan using AI
+5. Translated version displays with language indicator
+6. Teacher can download translated version as PDF
+
+#### Translation Requirements
+
+- **Preserve Structure**: Maintain all sections, formatting, and markdown
+- **Cultural Adaptation**: Adjust idioms and examples to be culturally appropriate
+- **Technical Terms**: Keep curriculum-specific terms in English with local language explanation (e.g., "Fraction (Juzu'i)" in Hausa)
+- **Accuracy**: Maintain pedagogical intent and lesson objectives
+
+#### Example Snippet (English → Hausa)
+
+**English:**
+"By the end of this lesson, students will be able to identify and classify different types of fractions."
+
+**Hausa:**
+"A ƙarshen wannan darasi, ɗalibai za su iya gano da rarraba nau'ikan juzu'i daban-daban."
+
+#### Acceptance Criteria
+
+- ✅ Translation completes within 20 seconds
+- ✅ All three languages supported (Hausa, Yoruba, Igbo)
+- ✅ Maintains original formatting and structure
+- ✅ Teacher can switch between languages without regenerating
+- ✅ Both English and translated versions are exportable
+- ✅ Translation preserves mathematical notation and curriculum references
+
+#### Technical Notes
+
+- Use Gemini or Groq with translation-specific prompts
+- Implement translation caching to avoid redundant API calls
+- Store both original and translated versions in database
+- Consider pre-translating common curriculum terms for consistency
+
+
+### 4.8 Feature F8: PDF Export
+
+#### Description
+
+Teachers can download lesson plans as pdf files for offline access, editing, and printing.
+
+#### User Flow
+
+1. Teacher views lesson plan in dashboard
+2. Clicks "Export to PDF" button
+3. System generates PDF file (2-5 seconds)
+4. File downloads automatically to device
+5. Teacher opens in PDF or mobile office app
+
+#### Document Formatting
+
+- **Template**: Professional, print-friendly layout
+- **Headers**: School name, teacher name, date, grade, subject
+- **Typography**: Arial or Calibri, 11pt body, 14pt headings
+- **Spacing**: 1.5 line spacing for readability
+- **Margins**: 1 inch all sides (standard A4)
+- **Footers**: Page numbers, Gojo branding
+
+#### File Naming Convention
+
+```
+[Subject]_[Grade]_[Topic]_[Date].pdf
+
+Examples:
+Mathematics_Primary4_Fractions_2025-10-07.pdf
+Social_Studies_JSS2_Nigerian_Government_2025-10-08.pdf
+```
+
+#### Acceptance Criteria
+
+- ✅ Export completes within 5 seconds
+- ✅ File opens correctly in PDF readers
+- ✅ All formatting preserved (headers, bold, lists, tables)
+- ✅ Includes school/teacher header information
+- ✅ File size under 500KB (optimized for mobile download)
+- ✅ Works on desktop and mobile browsers
+- ✅ Supports both English and translated versions
+
+#### Technical Notes
+
+- Use `docx` library .docx generation and `react-pdfs` for pdf generation
+- Create base template with Gojo branding
+- Handle special characters and multilingual text correctly
+- Implement download progress indicator for slow connections
+
+---
+
+### 4.10 Feature F9: Syllabus Review & Customization
+
+#### Description
+
+Teachers are shown an AI-generated syllabus for each subject during onboarding, aligned with the current term and week. Teachers can customize topics and subtopics for accuracy and teaching context. These stored syllabi directly inform all subsequent AI-generated lesson plans.
+
+#### User Flow
+
+1. During onboarding, after adding subjects, Gojo displays syllabus suggestions (per week).
+2. Teacher reviews weekly syllabus entries (topics/subtopics).
+3. Teacher edits, deletes, or adds new topics/subtopics.
+4. Teacher confirms syllabus.
+5. Customized syllabus is stored and referenced by lesson generation engine.
+
+#### Acceptance Criteria
+
+- ✅ AI generates weekly syllabus suggestions (term/week-specific)
+- ✅ Teachers can fully edit suggestions
+- ✅ Changes are persisted in `syllabus` table
+- ✅ Lesson plan generation pulls topics from `syllabus` if available
+
+---
+
+## 5. User Stories
+
+### Epic 1: Teacher Onboarding
+
+**US-1.1: Account Creation**  
+**As a** new teacher  
+**I want to** create an account with my email or Google  
+**So that** I can start using Gojo  
+**Acceptance Criteria:**
+
+- Can sign up with email + password
+- Can sign up with Google SSO
+- Receive email verification link
+- Redirected to profile setup after verification
+
+**US-1.2: Profile Setup**  
+**As a** registered teacher  
+**I want to** input my grade, subjects, and weekly schedule  
+**So that** the system knows what lesson plans to generate for me  
+**Acceptance Criteria:**
+
+- Can select grade from dropdown (Primary 1-6, JSS 1-3, SSS 1-3)
+- Can select subjects from curriculum list
+- Can add multiple class sessions per subject
+- Can specify day and duration for each session
+- Profile saves successfully
+
+**US-1.3: Schedule Configuration**  
+**As a** teacher with multiple subjects  
+**I want to** set different schedules for each subject  
+**So that** I receive lesson plans at the right times  
+**Acceptance Criteria:**
+
+- Can add up to 6 subjects
+- Each subject can have multiple weekly sessions
+- Can edit or delete schedule entries
+- System validates schedule conflicts
+
+**US-1.4: Syllabus Review**  
+**As a** teacher  
+**I want to** review and customize an AI-generated syllabus  
+**So that** lesson plans generated are aligned with my teaching needs  
+**Acceptance Criteria:**
+
+- Can view syllabus suggestions per subject/week
+- Can edit topics and subtopics
+- Saved syllabus is referenced for lesson plan generation
+
+---
+
+### Epic 2: Lesson Plan Generation & Access
+
+**US-2.1: Automated Lesson Generation**  
+**As a** teacher  
+**I want** lesson plans to be automatically generated 24 hours before my class  
+**So that** I have time to review and prepare without manual work  
+**Acceptance Criteria:**
+
+- Lesson plan appears in dashboard 1 day before class
+- Receive notification when plan is ready
+- Plan matches my schedule's duration
+- Content is appropriate for my grade level
+
+**US-2.2: View Lesson Plan**  
+**As a** teacher  
+**I want to** view my lesson plan in an organized format  
+**So that** I can quickly understand what to teach  
+**Acceptance Criteria:**
+
+- Can access lesson from dashboard
+- Plan displays all sections clearly
+- Mobile-responsive for viewing on phone
+- Can scroll through long plans easily
+
+**US-2.3: Classwork and Homework Access**  
+**As a** teacher  
+**I want to** see classwork questions with solutions and homework assignments  
+**So that** I can give students practice exercises and assess their understanding  
+**Acceptance Criteria:**
+
+- Classwork section includes 5+ questions
+- Solutions are detailed and accurate
+- Homework section includes 5+ questions
+- Assessment criteria provided for homework
+
+---
+
+### Epic 3: Multilingual Support
+
+**US-3.1: Translate Lesson Plan**  
+**As a** teacher in a rural area  
+**I want to** translate my lesson plan to Hausa/Yoruba/Igbo  
+**So that** I can teach more effectively in my students' mother tongue  
+**Acceptance Criteria:**
+
+- Can select translation language from dropdown
+- Translation completes within 20 seconds
+- Translated version maintains formatting
+- Can switch back to English version
+
+**US-3.2: Download Translated Version**  
+**As a** teacher  
+**I want to** export the translated lesson plan  
+**So that** I can print it for offline use  
+**Acceptance Criteria:**
+
+- Export button works for translated versions
+- Translated content correctly rendered in Word doc
+- File name indicates language (e.g., "\_Hausa.docx")
+
+---
+
+### Epic 4: Export & Offline Use
+
+**US-5.1: Export to PDF**  
+**As a** teacher  
+**I want to** download my lesson plan as a PDF document  
+**So that** I can edit, print, and use it offline  
+**Acceptance Criteria:**
+
+- Download button clearly visible
+- File downloads within 5 seconds
+- Opens correctly in PDF
+- Includes all lesson content and formatting
+
+**US-5.2: Edit Downloaded Plan**  
+**As a** teacher  
+**I want** the Word document to be fully editable  
+**So that** I can customize it for my specific classroom needs  
+**Acceptance Criteria:**
+
+- All text is editable
+- Can add/remove sections
+- Formatting can be changed
+- Can save edited version
+
+**US-5.3: Print Lesson Plan**  
+**As a** teacher  
+**I want to** print my lesson plan  
+**So that** I can refer to it during class without needing a device  
+**Acceptance Criteria:**
+
+- Document is print-ready (A4 format)
+- Margins and spacing suitable for printing
+- Headers/footers included
+- Fits on 2-4 pages typically
+
+---
+
+## 6. Technical Architecture
+
+### 6.1 System Components
+
+```
+┌─────────────────┐
+│   Frontend      │
+│  (React/Next)   │
+└────────┬────────┘
+         │
+         ↓
+┌─────────────────┐
+│   Backend API   │
+│ (next.js)   │
+└────────┬────────┘
+         │
+         ├→ ┌──────────────┐
+         │  │  Database    │
+         │  │ (PostgreSQL) │
+         │  └──────────────┘
+         │
+         ├→ ┌──────────────┐
+         │  │   AI/LLM     │
+         │  │ (Gemini/Groq)│
+         │  └──────────────┘
+         │
+         ├→ ┌──────────────┐
+         │  │ Scheduler    │
+         │  │(Inngest)     │
+         │  └──────────────┘
+         │
+         └→ ┌──────────────┐
+            │File Generator│
+            │              │
+            └──────────────┘
+```
+
+### 6.2 Tech Stack
+
+**Frontend:**
+
+- **Framework**: React with Next.js (SEO, SSR capabilities)
+- **UI Library**: Tailwind CSS + shadcn/ui components
+- **State Management**: Zustand
+- **Authentication**: Clerk
+
+**Backend:**
+
+- **API Framework**: Next.js api
+- **Database**: PostgreSQL (Neon)
+- **ORM**: Drizzle
+
+**AI/LLM:**
+
+- **Primary**: Google Gemini 1.5 Pro (free tier: 60 requests/min)
+- **Backup**: Groq (Llama 3.1 70B - fastest inference)
+- **Translation**: Same LLM with specialized prompts
+
+**Infrastructure:**
+
+- **Hosting**: Vercel
+- **Scheduler**: Inngest
+- **Monitoring**: Sentry (error tracking)
+
+**Document Generation:**
+
+- **Library**: docx and react-pdf
+- **Templating**: Pre-built .docx templates
+
+### 6.3 Database Schema (Simplified)
+
+```sql
+-- ========================================
+-- Teachers Table
+-- ========================================
+CREATE TABLE teachers (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    clerk_user_id TEXT UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    name VARCHAR(255),
+    school_name VARCHAR(255),
+    state VARCHAR(100),
+    term INTEGER NOT NULL DEFAULT 1,
+    created_at TIMESTAMP DEFAULT NOW(),
+    last_login TIMESTAMP DEFAULT NOW()
+);
+
+-- ========================================
+-- Teaching Assignments Table
+-- ========================================
+CREATE TABLE teaching_assignments (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    teacher_id UUID NOT NULL REFERENCES teachers(id) ON DELETE CASCADE,
+    grade_level VARCHAR(20) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    lesson_duration_minutes INTEGER NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+-- ========================================
+-- Syllabus Table
+-- ========================================
+CREATE TABLE syllabus (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    teacher_id UUID NOT NULL REFERENCES teachers(id) ON DELETE CASCADE,
+    assignment_id UUID NOT NULL REFERENCES teaching_assignments(id) ON DELETE CASCADE,
+    subject VARCHAR(255) NOT NULL,
+    grade_level VARCHAR(50) NOT NULL,
+    term VARCHAR(50) NOT NULL,
+    week_number INTEGER NOT NULL,
+    syllabus_data JSONB NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    updated_at TIMESTAMP DEFAULT NOW(),
+    UNIQUE (assignment_id, week_number)
+);
+
+-- ========================================
+-- Lesson Plans Table
+-- ========================================
+CREATE TABLE lesson_plans (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    teacher_id UUID NOT NULL REFERENCES teachers(id) ON DELETE CASCADE,
+    assignment_id UUID NOT NULL REFERENCES teaching_assignments(id) ON DELETE CASCADE,
+    topic VARCHAR(255) NOT NULL,
+    content_english TEXT,
+    content_translated TEXT,
+    generated_at TIMESTAMP DEFAULT NOW(),
+    week INTEGER NOT NULL,
+    term VARCHAR(50) NOT NULL
+);
+
+-- ========================================
+-- Scheduled Lesson Plan Generation Table
+-- ========================================
+CREATE TABLE scheduled_lesson_plan_generation (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    teacher_id UUID NOT NULL REFERENCES teachers(id) ON DELETE CASCADE,
+    assignment_id UUID NOT NULL REFERENCES teaching_assignments(id) ON DELETE CASCADE,
+    start_week INTEGER NOT NULL,
+    end_week INTEGER NOT NULL,
+    day_of_week INTEGER NOT NULL,
+    time TIME NOT NULL,
+    language VARCHAR(50) NOT NULL,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+```
+
+### 6.4 API Endpoints (Key Routes)
+
+```
+Authentication:
+POST   /api/signup
+POST   /api/login
+GET    /api/auth/me
+
+Teacher Profile:
+GET    /api/teacher/profile
+PUT    /api/teacher/profile
+POST   /api/teacher/assignments
+PUT    /api/teacher/assignments/:id
+DELETE /api/teacher/assignments/:id
+
+Lesson Plans:
+GET    /api/lesson-plans                    # Get all plans for logged-in teacher
+GET    /api/lesson-plans/:id                # Get specific lesson plan
+POST   /api/lesson-plans/generate           # Manually trigger generation
+POST   /api/lesson-plans/:id/translate      # Translate existing plan
+GET    /api/lesson-plans/:id/export         # Download as Word doc
+
+Curriculum:
+GET    /api/curriculum/subjects             # Get subjects by grade
+GET    /api/curriculum/topics               # Get topics for subject/grade/week
+
+Syllabus (NEW):
+POST   /api/syllabus/generate      # Generate a suggested syllabus for an assignment
+GET    /api/syllabus/:assignment_id/:term # Get a teacher's saved syllabus
+PUT    /api/syllabus/:id           # Update a syllabus
+DELETE /api/syllabus/:id                 # Delete syllabus entry
+
+
+System:
+POST   /api/cron/generate-lessons           # Scheduled job endpoint
+GET    /api/health                          # System health check
+```
+
+### 6.5 AI Prompt Engineering Strategy
+
+#### Base Lesson Plan Prompt Template
+
+```
+SYSTEM ROLE:
+You are an expert Nigerian educator with 15+ years of experience teaching according to NERDC curriculum standards. You create practical, engaging, and culturally relevant lesson plans for Nigerian classrooms.
+
+CONTEXT:
+- Grade Level: {grade_level}
+- Subject: {subject}
+- Term: {term}, Week: {week}
+- Lesson Duration: {duration_minutes} minutes
+- Curriculum Reference: NERDC 2025
+- **Custom Syllabus:** Use the teacher-provided syllabus for this subject/week:
+  Topic: {syllabus_topic}
+  Subtopics: {syllabus_subtopics}
+
+CONSTRAINTS:
+- Use Nigerian context, examples, and cultural references
+- Assume low-resource classroom (limited technology/materials)
+- Language should be clear and appropriate for {grade_level} students
+- Include practical, implementable activities
+- All measurements in metric system
+- Use Nigerian currency (Naira) in examples
+
+REQUIRED OUTPUT FORMAT:
+Generate a comprehensive lesson plan with these exact sections:
+
+# Lesson Plan: {topic_title}
+
+**Grade:** {grade_level}
+**Subject:** {subject}
+**Duration:** {duration_minutes} minutes
+**Date:** {scheduled_date}
+**Curriculum Ref:** NERDC 2025 - {subject} Term {term}, Week {week}
+
+---
+
+## Learning Objectives
+By the end of this lesson, students will be able to:
+1. [Measurable objective using Bloom's taxonomy verbs]
+2. [Second objective]
+3. [Third objective]
+
+## Materials Needed
+- [List 5-8 materials, prioritize locally available/low-cost items]
+
+## Lesson Structure
+
+### Introduction ({intro_minutes} minutes)
+[Engaging hook activity to capture attention and connect to prior knowledge]
+
+### Main Teaching ({main_minutes} minutes)
+[Detailed teaching content with:
+- Clear explanations
+- Step-by-step examples using Nigerian context
+- Interactive activities
+- Formative assessment checks]
+
+### Conclusion ({conclusion_minutes} minutes)
+[Summary activity, key takeaways, preview of next lesson]
+
+---
+
+## Classwork (In-Class Practice)
+
+**Instructions:** [How students should complete the work]
+
+1. [Question 1 - Easy]
+2. [Question 2 - Easy/Medium]
+3. [Question 3 - Medium]
+4. [Question 4 - Medium/Hard]
+5. [Question 5 - Application/Word Problem]
+
+### Solutions
+1. [Detailed solution with working]
+2. [Detailed solution with working]
+3. [Detailed solution with working]
+4. [Detailed solution with working]
+5. [Detailed solution with working]
+
+---
+
+## Homework Assignment
+
+**Due Date:** {due_date}
+**Instructions:** [Completion guidelines]
+
+1. [Question 1]
+2. [Question 2]
+3. [Question 3]
+4. [Question 4]
+5. [Question 5 - Extended response or project]
+
+**Assessment Criteria:**
+- [Criterion 1: percentage]
+- [Criterion 2: percentage]
+- [Criterion 3: percentage]
+
+---
+
+## Resources
+[Include 2-4 relevant, accessible resources with descriptions]
+
+---
+
+*Generated by Gojo | Aligned with NERDC 2025 Curriculum*
+```
+
+#### Translation Prompt Template
+
+```
+SYSTEM ROLE:
+You are a professional translator specializing in educational content for Nigerian schools. You maintain pedagogical clarity while adapting content to local cultural contexts.
+
+TASK:
+Translate the following lesson plan from English to {target_language} ({language_name}).
+
+REQUIREMENTS:
+1. Preserve all formatting, sections, and structure
+2. Keep curriculum references, dates, and technical terms in English with local language explanations in parentheses
+3. Adapt idioms and cultural references to be appropriate in {target_language}
+4. Maintain the educational intent and learning objectives
+5. Use formal educational language appropriate for teachers
+6. Keep mathematical notation and formulas unchanged
+7. Preserve all URLs and resource links
+
+TARGET LANGUAGE: {target_language}
+- Hausa: Formal Hausa used in Northern Nigerian education
+- Yoruba: Standard Yoruba with appropriate diacritics
+- Igbo: Standard Igbo suitable for educational contexts
+
+LESSON PLAN TO TRANSLATE:
+{english_lesson_plan}
+
+OUTPUT:
+[Translated lesson plan maintaining exact structure]
+```
+
+---
+
+## 7. User Interface & Experience
+
+### 7.1 Key Screens/Pages
+
+#### 7.1.1 Landing Page (Public)
+
+**Purpose:** Attract and inform potential users
+
+**Elements:**
+
+- Hero section: "Empower Your Teaching with AI-Generated Lesson Plans"
+- Key benefits (Time-saving, Curriculum-aligned, Multilingual)
+- Teacher testimonials (post-launch)
+- "Get Started Free" CTA button
+- Feature highlights with icons
+- FAQ section
+
+---
+
+#### 7.1.2 Onboarding Flow (New Users)
+
+**Step 1: Account Creation**
+
+```
+┌────────────────────────────────┐
+│     Create Your Account        │
+├────────────────────────────────┤
+│                                │
+│  [Google Sign-In Button]       │
+│                                │
+│  ──── OR ────                  │
+│                                │
+│  Email: [_____________]        │
+│  Password: [_____________]     │
+│  Confirm: [_____________]      │
+│                                │
+│  [x] I agree to Terms          │
+│                                │
+│  [    Create Account    ]      │
+│                                │
+│  Already have account? Login   │
+└────────────────────────────────┘
+```
+
+**Step 2: Profile Setup**
+
+```
+┌────────────────────────────────┐
+│     Complete Your Profile      │
+│        (Step 1 of 3)           │
+├────────────────────────────────┤
+│                                │
+│  Full Name: [_____________]    │
+│  School Name: [_____________]  │
+│  State: [Dropdown ▼]           │
+│                                │
+│                                │
+│                                │
+│                                │
+│  [    Continue    ]            │
+└────────────────────────────────┘
+```
+
+**Step 3: Teaching Assignment**
+
+```
+┌────────────────────────────────┐
+│    Add Teaching Assignment     │
+│        (Step 2 of 3)           │
+├────────────────────────────────┤
+│                                │
+│  Grade Level: [Primary 4 ▼]   │
+│  Subject: [Mathematics ▼]      │
+│                                │
+│  Weekly Schedule:              │
+│  ┌──────────────────────────┐ │
+│  │ Day: [Monday ▼]          │ │
+│  │ Time: [09:00 ▼]          │ │
+│  │ Duration: [60 min ▼]     │ │
+│  │ [+ Add Another Session]  │ │
+│  └──────────────────────────┘ │
+│                                │
+│  [+ Add Another Subject]       │
+│                                │
+│  [Back]      [Continue]        │
+└────────────────────────────────┘
+```
+
+**Step 3b: Syllabus Review**
+
+```
+┌────────────────────────────────┐
+│    Review Subject Syllabus     │
+│        (Step 3 of 4)           │
+├────────────────────────────────┤
+│ Subject: Biology (SSS 2)       │
+│ Current Term: 2, Week: 9       │
+│                                │
+│ Week 9 Suggested Topic:        │
+│  • Terrestrial Habitat         │
+│    i) Definition               │
+│    ii) Types of terrestrial    │
+│    iii) Organisms & features   │
+│    iv) Characteristics         │
+│    v) Food chain & web         │
+│                                │
+│ [Edit Topic/Subtopics]         │
+│ [Save & Continue]              │
+└────────────────────────────────┘
+```
+
+**Step 4: Confirmation**
+
+```
+┌────────────────────────────────┐
+│    Review Your Setup           │
+│        (Step 3 of 3)           │
+├────────────────────────────────┤
+│                                │
+│  Teacher: Mrs. Amina Ibrahim   │
+│  School: Government Primary    │
+│  State: Kano                   │
+│                                │
+│  Teaching Schedule:            │
+│  ✓ Primary 4 - Mathematics     │
+│    Mon 9:00am (1hr)            │
+│    Wed 10:00am (1hr)           │
+│                                │
+│  ✓ Primary 4 - Basic Science   │
+│    Tue 11:00am (1hr)           │
+│    Thu 2:00pm (2hr)            │
+│                                │
+│  Your first lesson plans will  │
+│  be ready 24 hours before each │
+│  scheduled class!              │
+│                                │
+│  [Edit]    [Complete Setup]    │
+└────────────────────────────────┘
+```
+
+---
+
+#### 7.1.3 Dashboard (Main Screen)
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  ☰  Gojo    🔔(2)  👤 Mrs. Ibrahim  [⚙]  │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  📚 My Lesson Plans                  Week: Oct 6-12, 2025│
+│  ────────────────────────────────────────────────────   │
+│                                                          │
+│  📅 Upcoming Classes:                                    │
+│                                                          │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ ✅ Monday, Oct 7 • 9:00 AM                        │  │
+│  │    Primary 4 - Mathematics                        │  │
+│  │    Topic: Introduction to Fractions               │  │
+│  │    Duration: 60 minutes                           │  │
+│  │                                                    │  │
+│  │    [View Plan] [Export to Word] [Translate ▼]    │  │
+│  │    Generated: Oct 6, 9:00 AM                      │  │
+│  └──────────────────────────────────────────────────┘  │
+│                                                          │
+│  ┌──────────────────────────────────────────────────┐  │
+│  │ 🔄 Tuesday, Oct 8 • 11:00 AM                      │  │
+│  │    Primary 4 - Basic Science                      │  │
+│  │    Topic: The Water Cycle                         │  │
+│  │    Duration: 60 minutes                           │  │
+│  │                                                    │  │
+│  │    ⏳ Generating... (Ready by Oct 7, 11:00 AM)    │  │
+│  └──────────────────────────────────────────────────┘  │
+│                                                          │
+│  📊 Quick Stats:                                         │
+│  • 12 Lessons Generated This Term                       │
+│  • 8 Lessons Taught                                     │
+│  • 10 Downloads This Month                              │
+│                                                          │
+│  [+ Add New Subject]  [View All Lessons]                │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### 7.1.4 Lesson Plan View (Detail Screen)
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  ← Back to Dashboard                                     │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  # Lesson Plan: Introduction to Fractions               │
+│                                                          │
+│  **Grade:** Primary 4                                    │
+│  **Subject:** Mathematics                                │
+│  **Duration:** 60 minutes                                │
+│  **Date:** October 7, 2025                               │
+│  **Curriculum Ref:** NERDC 2025 - Primary Mathematics    │
+│                                                          │
+│  [📥 Export to Word/PDF]  [🌐 Translate ▼]  [🔄 Regenerate] │
+│  ─────────────────────────────────────────────────────  │
+│                                                          │
+│  ## Learning Objectives                                  │
+│  By the end of this lesson, students will be able to:   │
+│  1. Define what a fraction is                           │
+│  2. Identify the numerator and denominator              │
+│  3. Represent simple fractions using objects            │
+│                                                          │
+│  ## Materials Needed                                     │
+│  • Oranges or any fruits (4-5 pieces)                   │
+│  • Cardboard paper cut into circles                     │
+│  • Colored markers                                       │
+│  • Student notebooks                                     │
+│  • Chalkboard and chalk                                  │
+│                                                          │
+│  [... Rest of lesson plan content ...]                  │
+│                                                          │
+│  ## Classwork (In-Class Practice)                       │
+│  [... Questions displayed ...]                           │
+│                                                          │
+│  [Show Solutions ▼]                                      │
+│                                                          │
+│  ## Homework Assignment                                  │
+│  [... Homework questions ...]                            │
+│                                                          │
+│  ## Resources                                            │
+│  📹 "Understanding Fractions" - Khan Academy (8 mins)    │
+│     [Watch Video →]                                      │
+│                                                          │
+│  📄 "Teaching Fractions with Local Materials" - NSTA    │
+│     [Read Article →]                                     │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+#### 7.1.5 Translation Modal
+
+```
+┌─────────────────────────────────────┐
+│  Translate Lesson Plan         [✕] │
+├─────────────────────────────────────┤
+│                                     │
+│  Select Target Language:            │
+│                                     │
+│  ○ Hausa (Yaren Hausa)              │
+│  ○ Yoruba (Èdè Yorùbá)              │
+│  ○ Igbo (Asụsụ Igbo)                │
+│                                     │
+│  Note: Translation preserves all    │
+│  formatting and curriculum refs.    │
+│  This may take 15-20 seconds.       │
+│                                     │
+│  [Cancel]       [Translate Now]     │
+│                                     │
+└─────────────────────────────────────┘
+```
+
+---
+
+### 7.2 Mobile Responsive Design
+
+**Key Considerations:**
+
+- Dashboard cards stack vertically on mobile
+- Lesson plans scrollable with sticky action buttons
+- Export/translate actions in bottom sheet modal
+- Touch-friendly button sizes (min 44px)
+- Readable font sizes (min 16px for body text)
+- Hamburger menu for navigation on small screens
+
+---
+
+### 7.3 Accessibility Requirements
+
+- **WCAG 2.1 AA Compliance**
+- Keyboard navigation support
+- Screen reader compatibility (ARIA labels)
+- Color contrast ratio ≥ 4.5:1 for text
+- Focus indicators on interactive elements
+- Alt text for all images/icons
+- Text resizable up to 200% without loss of functionality
+
+---
+
+## 12. Appendices
+
+### Appendix A: Nigeria Curriculum Subject List
+
+**Primary School (1-6):**
+
+- English Language
+- Mathematics
+- Basic Science & Technology
+- Social Studies
+- Civic Education
+- Cultural & Creative Arts
+- Hausa/Yoruba/Igbo (Language of Environment)
+- Physical & Health Education
+- Religious Studies (Christian/Islamic)
+
+**Junior Secondary (JSS 1-3):**
+
+- English Language
+- Mathematics
+- Basic Science
+- Basic Technology
+- Civic Education
+- Social Studies
+- Physical & Health Education
+- Business Studies
+- Computer Studies
+- Home Economics
+- Agricultural Science
+- Cultural & Creative Arts
+- French (optional)
+
+**Senior Secondary (SSS 1-3):**
+**Core:**
+
+- English Language
+- Mathematics
+- Civic Education
+- Trade/Entrepreneurship
+
+**Electives (by track):**
+
+- Sciences: Physics, Chemistry, Biology, Further Math
+- Arts: Literature, Government, Economics, Geography
+- Commercial: Accounting, Commerce, Marketing
+- Technical: Technical Drawing, Auto Mechanics, Electrical Installation
+- Vocational: Catering, Cosmetology, Fashion Design
+
+### Appendix B: Translation Glossary
+
+| English             | Hausa             | Yoruba      | Igbo            |
+| ------------------- | ----------------- | ----------- | --------------- |
+| Lesson Plan         | Tsarin Darasi     | Ètò Ẹ̀kọ́     | Atụmatụ Nkuzi   |
+| Learning Objectives | Maƙasudai na Koyo | Èrò Ìkẹ́kọ̀ọ́  | Ebumnuche Mmụta |
+| Classwork           | Aikin Aji         | Iṣẹ́ Kíláàsì | Ọrụ Klaasị      |
+| Homework            | Aikin Gida        | Iṣẹ́ Ilé     | Ọrụ Ụlọ         |
+| Assessment          | Kimantawa         | Ìdánwò      | Nyocha          |
+| Student             | Ɗalibi            | Akẹ́kọ̀ọ́      | Nwa akwụkwọ     |
+| Teacher             | Malami            | Olùkọ́       | Onye nkuzi      |
+
+### Appendix C: Sample Lesson Plan Output
+
+[Full example generated by AI during development - included in testing documentation]
+
+### Appendix D: API Rate Limits
+
+**Google Gemini (Free Tier):**
+
+- 60 requests per minute
+- 1,500 requests per day
+- Max tokens per request: 32,000
+
+**Groq (Free Tier):**
+
+- 30 requests per minute (Llama 3.1 70B)
+- 14,400 requests per day
+- Max tokens per request: 8,000
+- Fastest inference speed: ~500 tokens/second
+
+**Strategy:** Use Gemini as primary, Groq as fallback for speed-critical operations
+
+---
+
+## 13. Glossary of Terms
+
+- **NERDC**: Nigerian Educational Research and Development Council (curriculum authority)
+- **UBEC**: Universal Basic Education Commission
+- **LLM**: Large Language Model (AI system)
+- **API**: Application Programming Interface
+- **MVP**: Minimum Viable Product
+- **SSO**: Single Sign-On
+- **WCAG**: Web Content Accessibility Guidelines
+- **PWA**: Progressive Web App
+- **LMS**: Learning Management System
+- **UAT**: User Acceptance Testing
+- **KPI**: Key Performance Indicator
+
+---
+
+## Document Control
+
+| Version | Date        | Author    | Changes         |
+| ------- | ----------- | --------- | --------------- |
+| 1.0     | Oct 5, 2025 | Gojo Team | Initial MVP PRD |
+
+**Approval:**
+
+- [ ] Product Manager
+- [ ] Technical Lead
+- [ ] Hackathon Team Lead
+
+**Next Review Date:** Post-hackathon (After demo/judging)
+
+---
+
+_This PRD is a living document and will be updated as the project evolves._
